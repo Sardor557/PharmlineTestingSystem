@@ -115,6 +115,7 @@
             EmployeeBtn.Text = "Сотрудники";
             EmployeeBtn.TextColor = System.Drawing.Color.White;
             EmployeeBtn.UseVisualStyleBackColor = false;
+            EmployeeBtn.Click += EmployeeBtn_Click;
             // 
             // FrmMain
             // 

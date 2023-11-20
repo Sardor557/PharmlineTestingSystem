@@ -44,5 +44,23 @@ namespace PharmlineTestingSystem.Controllers
         {
             return service.GetStatusesAsync();
         }
+
+        [HttpGet("employees")]
+        public ValueTask<Answer<tbEmployee[]>> GetEmployeesAsync()
+        {
+            return service.GetEmployeesAsync();
+        }
+
+        [HttpPost("add_employee")]
+        public ValueTask<Answer<int>> AddEmployeeAsync([FromBody] tbEmployee employee)
+        {
+            return service.AddEmployeeAsync(employee);
+        }
+
+        [HttpPost("edit_employee")]
+        public ValueTask<AnswerBasic> EditEmployeeAsync(tbEmployee employee)
+        {
+            return service.EditEmployeeAsync(employee);
+        }
     }
 }

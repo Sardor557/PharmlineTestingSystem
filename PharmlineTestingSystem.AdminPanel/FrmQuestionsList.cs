@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel
 {
-    public partial class FrmQuestions : Form
+    public partial class FrmQuestionsList : Form
     {
-        public FrmQuestions()
+        public FrmQuestionsList()
         {
             InitializeComponent();
         }

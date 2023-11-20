@@ -106,5 +106,74 @@ namespace PharmlineTestingSystem.Repository.Services
                 return new Answer<spStatus[]>(false, "Ошибка");
             }
         }
+
+        public async ValueTask<Answer<int>> AddEmployeeAsync(tbEmployee employee)
+        {
+            var tran = await db.Database.BeginTransactionAsync();
+            try
+            {
+                employee.Validate();
+                employee.Phone = "+998" + employee.Phone;
+                employee.Password = CHash.EncryptMD5(employee.Password);
+                employee.CreateDate = DateTime.Now;
+                employee.CreateUser = accessor.GetId();
+
+                await db.tbEmployees.AddAsync(employee);
+                await db.SaveChangesAsync();
+                await tran.CommitAsync();
+
+                return new Answer<int>(true, "OK", employee.Id);
+            }
+            catch (Exception ex)
+            {
+                await tran.RollbackAsync();
+                logger.LogError("DicoService.AddEmployeeAsync error: {0} model:{1}", ex.GetAllMessages(), employee.ToJson());
+                return new Answer<int>(false, "Ошибка");
+            }
+        }
+
+        public async ValueTask<AnswerBasic> EditEmployeeAsync(tbEmployee employee)
+        {
+            var tran = await db.Database.BeginTransactionAsync();
+            try
+            {
+                employee.Validate();
+                employee.Phone = "+998" + employee.Phone;
+                employee.Password = CHash.EncryptMD5(employee.Password);
+                employee.UpdateDate = DateTime.Now;
+                employee.UpdateUser = accessor.GetId();
+
+                db.tbEmployees.Update(employee);
+                await db.SaveChangesAsync();
+                await tran.CommitAsync();
+
+                return new AnswerBasic(true, "OK");
+            }
+            catch (Exception ex)
+            {
+                await tran.RollbackAsync();
+                logger.LogError("DicoService.EditEmployeeAsync error: {0} model:{1}", ex.GetAllMessages(), employee.ToJson());
+                return new AnswerBasic(false, "Ошибка");
+            }
+        }
+
+        public async ValueTask<Answer<tbEmployee[]>> GetEmployeesAsync()
+        {
+            try
+            {
+                var emps = await db.tbEmployees
+                    .AsNoTracking()                    
+                    .ToArrayAsync();
+
+                emps = emps.Select(x => { x.Password = null; return x; }).ToArray();
+
+                return new Answer<tbEmployee[]>(true, "", emps);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("DicoService.GetStatusesAsync error: {0}", ex.GetAllMessages());
+                return new Answer<tbEmployee[]>(false, "Ошибка");
+            }
+        }
     }
 }

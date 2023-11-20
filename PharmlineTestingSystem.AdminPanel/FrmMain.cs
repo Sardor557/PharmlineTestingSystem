@@ -22,8 +22,14 @@ namespace PharmlineTestingSystem.AdminPanel
 
         private void QuestionsBtn_Click(object sender, System.EventArgs e)
         {
-            var frmQuestion = new FrmQuestions();
+            var frmQuestion = new FrmQuestionsList();
             frmQuestion.ShowDialog();
+        }
+
+        private void EmployeeBtn_Click(object sender, System.EventArgs e)
+        {
+            var frmEmployeeList = new FrmEmployeeList();
+            frmEmployeeList.ShowDialog();
         }
     }
 }

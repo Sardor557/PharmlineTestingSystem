@@ -43,7 +43,7 @@ namespace PharmlineTestingSystem.AdminPanel
             // 
             LoginLabel.AutoSize = true;
             LoginLabel.Font = new Font("Segoe UI", 13F);
-            LoginLabel.Location = new Point(47, 45);
+            LoginLabel.Location = new Point(46, 36);
             LoginLabel.Name = "LoginLabel";
             LoginLabel.Size = new Size(62, 25);
             LoginLabel.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace PharmlineTestingSystem.AdminPanel
             // 
             // LoginTextBox
             // 
-            LoginTextBox.Location = new Point(115, 48);
+            LoginTextBox.Location = new Point(114, 39);
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.Size = new Size(160, 23);
             LoginTextBox.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace PharmlineTestingSystem.AdminPanel
             // 
             PasswordLabel.AutoSize = true;
             PasswordLabel.Font = new Font("Segoe UI", 13F);
-            PasswordLabel.Location = new Point(35, 84);
+            PasswordLabel.Location = new Point(34, 75);
             PasswordLabel.Name = "PasswordLabel";
             PasswordLabel.Size = new Size(74, 25);
             PasswordLabel.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace PharmlineTestingSystem.AdminPanel
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(115, 87);
+            PasswordTextBox.Location = new Point(114, 78);
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.PasswordChar = '*';
             PasswordTextBox.Size = new Size(160, 23);

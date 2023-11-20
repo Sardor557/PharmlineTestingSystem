@@ -40,14 +40,14 @@
             tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
             tbEmployeeBindingSource = new System.Windows.Forms.BindingSource(components);
             EmployeeGridView = new System.Windows.Forms.DataGridView();
-            idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            telegramIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            createUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colTelegramId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colCreateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             HeaderPanel.SuspendLayout();
@@ -120,6 +120,7 @@
             EditEmployeeBtn.Text = "Изменить сотрудника";
             EditEmployeeBtn.TextColor = System.Drawing.Color.White;
             EditEmployeeBtn.UseVisualStyleBackColor = false;
+            EditEmployeeBtn.Click += EditEmployeeBtn_Click;
             // 
             // AddEmployeeBtn
             // 
@@ -164,7 +165,7 @@
             EmployeeGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             EmployeeGridView.BackgroundColor = System.Drawing.Color.White;
             EmployeeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            EmployeeGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, telegramIdDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, createUserDataGridViewTextBoxColumn, createDateDataGridViewTextBoxColumn, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
+            EmployeeGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colId, colFullName, colPhone, colTelegramId, colPassword, colStatus, colCreateUser, colCreateDate, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
             EmployeeGridView.DataSource = tbEmployeeBindingSource;
             EmployeeGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             EmployeeGridView.Location = new System.Drawing.Point(0, 143);
@@ -174,66 +175,65 @@
             EmployeeGridView.Size = new System.Drawing.Size(547, 395);
             EmployeeGridView.TabIndex = 2;
             // 
-            // idDataGridViewTextBoxColumn
+            // colId
             // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Visible = false;
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
             // 
-            // fullNameDataGridViewTextBoxColumn
+            // colFullName
             // 
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "colFullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "Ф.И.О";
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            colFullName.DataPropertyName = "FullName";
+            colFullName.HeaderText = "Ф.И.О";
+            colFullName.Name = "colFullName";
+            colFullName.ReadOnly = true;
             // 
-            // phoneDataGridViewTextBoxColumn
+            // colPhone
             // 
-            phoneDataGridViewTextBoxColumn.DataPropertyName = "colPhone";
-            phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            colPhone.DataPropertyName = "Phone";
+            colPhone.HeaderText = "Номер";
+            colPhone.Name = "colPhone";
+            colPhone.ReadOnly = true;
             // 
-            // telegramIdDataGridViewTextBoxColumn
+            // colTelegramId
             // 
-            telegramIdDataGridViewTextBoxColumn.DataPropertyName = "TelegramId";
-            telegramIdDataGridViewTextBoxColumn.HeaderText = "TelegramId";
-            telegramIdDataGridViewTextBoxColumn.Name = "telegramIdDataGridViewTextBoxColumn";
-            telegramIdDataGridViewTextBoxColumn.ReadOnly = true;
-            telegramIdDataGridViewTextBoxColumn.Visible = false;
+            colTelegramId.DataPropertyName = "TelegramId";
+            colTelegramId.HeaderText = "TelegramId";
+            colTelegramId.Name = "colTelegramId";
+            colTelegramId.ReadOnly = true;
+            colTelegramId.Visible = false;
             // 
-            // passwordDataGridViewTextBoxColumn
+            // colPassword
             // 
-            passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            passwordDataGridViewTextBoxColumn.Visible = false;
+            colPassword.DataPropertyName = "Password";
+            colPassword.HeaderText = "Password";
+            colPassword.Name = "colPassword";
+            colPassword.ReadOnly = true;
+            colPassword.Visible = false;
             // 
-            // statusDataGridViewTextBoxColumn
+            // colStatus
             // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            statusDataGridViewTextBoxColumn.Visible = false;
+            colStatus.DataPropertyName = "Status";
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
+            colStatus.Visible = false;
             // 
-            // createUserDataGridViewTextBoxColumn
+            // colCreateUser
             // 
-            createUserDataGridViewTextBoxColumn.DataPropertyName = "CreateUser";
-            createUserDataGridViewTextBoxColumn.HeaderText = "CreateUser";
-            createUserDataGridViewTextBoxColumn.Name = "createUserDataGridViewTextBoxColumn";
-            createUserDataGridViewTextBoxColumn.ReadOnly = true;
-            createUserDataGridViewTextBoxColumn.Visible = false;
+            colCreateUser.DataPropertyName = "CreateUser";
+            colCreateUser.HeaderText = "CreateUser";
+            colCreateUser.Name = "colCreateUser";
+            colCreateUser.ReadOnly = true;
+            colCreateUser.Visible = false;
             // 
-            // createDateDataGridViewTextBoxColumn
+            // colCreateDate
             // 
-            createDateDataGridViewTextBoxColumn.DataPropertyName = "colCreateDate";
-            createDateDataGridViewTextBoxColumn.HeaderText = "Дата Создания";
-            createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
-            createDateDataGridViewTextBoxColumn.ReadOnly = true;
+            colCreateDate.DataPropertyName = "CreateDate";
+            colCreateDate.HeaderText = "Дата создания";
+            colCreateDate.Name = "colCreateDate";
+            colCreateDate.ReadOnly = true;
             // 
             // updateUserDataGridViewTextBoxColumn
             // 
@@ -262,6 +262,7 @@
             Name = "FrmEmployeeList";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Вопросы";
+            Load += FrmEmployeeList_Load;
             HeaderPanel.ResumeLayout(false);
             HeaderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -295,14 +296,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource tbEmployeeBindingSource;
         private System.Windows.Forms.DataGridView EmployeeGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telegramIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTelegramId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPassword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn;
     }

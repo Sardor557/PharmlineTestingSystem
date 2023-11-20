@@ -1,6 +1,6 @@
 ﻿namespace PharmlineTestingSystem.AdminPanel
 {
-    partial class FrmQuestions
+    partial class FrmQuestionsList
     {
         /// <summary>
         /// Required designer variable.
