@@ -66,7 +66,7 @@ namespace PharmlineTestingSystem.AdminPanel.RJControlls
             this.Size = new Size(150, 40);
             this.BackColor = Color.MediumSlateBlue;
             this.ForeColor = Color.White;
-            this.Resize += new EventHandler(Button_Resize);
+            this.Resize += new EventHandler(Button_Resize);           
         }
 
         private void Button_Resize(object sender, EventArgs e)

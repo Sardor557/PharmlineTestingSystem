@@ -30,6 +30,8 @@
         {
             QuestionsBtn = new RJControlls.RJButton();
             AnswersBtn = new RJControlls.RJButton();
+            DrugsBtn = new RJControlls.RJButton();
+            EmployeeBtn = new RJControlls.RJButton();
             SuspendLayout();
             // 
             // QuestionsBtn
@@ -45,7 +47,7 @@
             QuestionsBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             QuestionsBtn.ForeColor = System.Drawing.Color.White;
             QuestionsBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            QuestionsBtn.Location = new System.Drawing.Point(64, 36);
+            QuestionsBtn.Location = new System.Drawing.Point(39, 36);
             QuestionsBtn.Name = "QuestionsBtn";
             QuestionsBtn.Size = new System.Drawing.Size(189, 119);
             QuestionsBtn.TabIndex = 0;
@@ -66,7 +68,7 @@
             AnswersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             AnswersBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             AnswersBtn.ForeColor = System.Drawing.Color.White;
-            AnswersBtn.Location = new System.Drawing.Point(313, 36);
+            AnswersBtn.Location = new System.Drawing.Point(251, 36);
             AnswersBtn.Name = "AnswersBtn";
             AnswersBtn.Size = new System.Drawing.Size(189, 119);
             AnswersBtn.TabIndex = 1;
@@ -74,13 +76,55 @@
             AnswersBtn.TextColor = System.Drawing.Color.White;
             AnswersBtn.UseVisualStyleBackColor = false;
             // 
+            // DrugsBtn
+            // 
+            DrugsBtn.BackColor = System.Drawing.Color.Indigo;
+            DrugsBtn.BackgroundColor = System.Drawing.Color.Indigo;
+            DrugsBtn.BorderColor = System.Drawing.Color.Indigo;
+            DrugsBtn.BorderRadius = 20;
+            DrugsBtn.BorderSize = 0;
+            DrugsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            DrugsBtn.FlatAppearance.BorderSize = 0;
+            DrugsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            DrugsBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
+            DrugsBtn.ForeColor = System.Drawing.Color.White;
+            DrugsBtn.Location = new System.Drawing.Point(463, 36);
+            DrugsBtn.Name = "DrugsBtn";
+            DrugsBtn.Size = new System.Drawing.Size(197, 119);
+            DrugsBtn.TabIndex = 2;
+            DrugsBtn.Text = "Препараты";
+            DrugsBtn.TextColor = System.Drawing.Color.White;
+            DrugsBtn.UseVisualStyleBackColor = false;
+            // 
+            // EmployeeBtn
+            // 
+            EmployeeBtn.BackColor = System.Drawing.Color.Indigo;
+            EmployeeBtn.BackgroundColor = System.Drawing.Color.Indigo;
+            EmployeeBtn.BorderColor = System.Drawing.Color.Indigo;
+            EmployeeBtn.BorderRadius = 20;
+            EmployeeBtn.BorderSize = 0;
+            EmployeeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            EmployeeBtn.FlatAppearance.BorderSize = 0;
+            EmployeeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            EmployeeBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
+            EmployeeBtn.ForeColor = System.Drawing.Color.White;
+            EmployeeBtn.Location = new System.Drawing.Point(710, 36);
+            EmployeeBtn.Name = "EmployeeBtn";
+            EmployeeBtn.Size = new System.Drawing.Size(205, 119);
+            EmployeeBtn.TabIndex = 3;
+            EmployeeBtn.Text = "Сотрудники";
+            EmployeeBtn.TextColor = System.Drawing.Color.White;
+            EmployeeBtn.UseVisualStyleBackColor = false;
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Indigo;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            ClientSize = new System.Drawing.Size(576, 186);
+            ClientSize = new System.Drawing.Size(964, 186);
+            Controls.Add(EmployeeBtn);
+            Controls.Add(DrugsBtn);
             Controls.Add(AnswersBtn);
             Controls.Add(QuestionsBtn);
             MaximizeBox = false;
@@ -96,5 +140,7 @@
 
         private RJControlls.RJButton QuestionsBtn;
         private RJControlls.RJButton AnswersBtn;
+        private RJControlls.RJButton DrugsBtn;
+        private RJControlls.RJButton EmployeeBtn;
     }
 }
