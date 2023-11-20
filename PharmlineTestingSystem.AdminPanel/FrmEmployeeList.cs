@@ -1,4 +1,5 @@
 ﻿using PharmlineTestingSystem.AdminPanel.Services;
+using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
 using PharmlineTestingSystem.Shared.ViewModels;
 using System;
@@ -15,11 +16,18 @@ namespace PharmlineTestingSystem.AdminPanel
         public FrmEmployeeList()
         {
             InitializeComponent();
+            this.EmployeeGridView.CellFormatting += EmployeeGridView_CellFormatting;
+        }
+
+        private void EmployeeGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            GridRowStyle.SetRowsStyle(this.EmployeeGridView.Rows, 5);
         }
 
         private async void FrmEmployeeList_Load(object sender, EventArgs e)
         {
             await GetEmployeesAsync();
+            GridRowStyle.SetRowsStyle(this.EmployeeGridView.Rows, 5);
         }
 
         private async void AddEmployeeBtn_Click(object sender, EventArgs e)
@@ -30,6 +38,7 @@ namespace PharmlineTestingSystem.AdminPanel
 
             var res = await DicoService.AddEmployeeAsync(employee);
             MessageBox.Show(res.Message);
+            frmEmployee.Dispose();
 
             await GetEmployeesAsync();
         }
@@ -50,10 +59,17 @@ namespace PharmlineTestingSystem.AdminPanel
             var frmEmployee = new FrmEmployee(employee);
             if (frmEmployee.ShowDialog() != DialogResult.OK) return;
 
+            frmEmployee.Dispose();
             var res = await DicoService.EditEmployeeAsync(employee);
             MessageBox.Show(res.Message);
 
             await GetEmployeesAsync();
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }

@@ -32,6 +32,7 @@ namespace PharmlineTestingSystem.Repository.Services
                 var drugs = await db.spDrugs
                     .AsNoTracking()
                     .Where(x => x.Status == status)
+                    .OrderBy(x => x.Name)
                     .ToArrayAsync();
 
                 return new Answer<spDrug[]>(true, "", drugs);
@@ -162,7 +163,8 @@ namespace PharmlineTestingSystem.Repository.Services
             try
             {
                 var emps = await db.tbEmployees
-                    .AsNoTracking()                    
+                    .AsNoTracking()
+                    .OrderBy(x => x.Id)
                     .ToArrayAsync();
 
                 emps = emps.Select(x => { x.Password = null; return x; }).ToArray();

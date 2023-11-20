@@ -33,11 +33,9 @@
             EmployeesLabel = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             panel = new System.Windows.Forms.Panel();
+            BackBtn = new RJControlls.RJButton();
             EditEmployeeBtn = new RJControlls.RJButton();
             AddEmployeeBtn = new RJControlls.RJButton();
-            spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
-            tbQuestionBindingSource = new System.Windows.Forms.BindingSource(components);
-            tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
             tbEmployeeBindingSource = new System.Windows.Forms.BindingSource(components);
             EmployeeGridView = new System.Windows.Forms.DataGridView();
             colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +48,9 @@
             colCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            BackBtn = new RJControlls.RJButton();
             HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tbQuestionBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tbOptionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbEmployeeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeGridView).BeginInit();
             SuspendLayout();
@@ -104,6 +98,26 @@
             panel.Size = new System.Drawing.Size(547, 66);
             panel.TabIndex = 1;
             // 
+            // BackBtn
+            // 
+            BackBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            BackBtn.BorderRadius = 10;
+            BackBtn.BorderSize = 0;
+            BackBtn.FlatAppearance.BorderSize = 0;
+            BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            BackBtn.ForeColor = System.Drawing.Color.White;
+            BackBtn.Location = new System.Drawing.Point(411, 6);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new System.Drawing.Size(124, 54);
+            BackBtn.TabIndex = 3;
+            BackBtn.Text = "⬅️ Назад";
+            BackBtn.TextColor = System.Drawing.Color.White;
+            BackBtn.UseVisualStyleBackColor = false;
+            BackBtn.Click += BackBtn_Click;
+            // 
             // EditEmployeeBtn
             // 
             EditEmployeeBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -144,18 +158,6 @@
             AddEmployeeBtn.UseVisualStyleBackColor = false;
             AddEmployeeBtn.Click += AddEmployeeBtn_Click;
             // 
-            // spDrugBindingSource
-            // 
-            spDrugBindingSource.DataSource = typeof(Models.spDrug);
-            // 
-            // tbQuestionBindingSource
-            // 
-            tbQuestionBindingSource.DataSource = typeof(Models.tbQuestion);
-            // 
-            // tbOptionBindingSource
-            // 
-            tbOptionBindingSource.DataSource = typeof(Models.tbOption);
-            // 
             // tbEmployeeBindingSource
             // 
             tbEmployeeBindingSource.DataSource = typeof(Models.tbEmployee);
@@ -171,6 +173,7 @@
             EmployeeGridView.DataSource = tbEmployeeBindingSource;
             EmployeeGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             EmployeeGridView.Location = new System.Drawing.Point(0, 143);
+            EmployeeGridView.MultiSelect = false;
             EmployeeGridView.Name = "EmployeeGridView";
             EmployeeGridView.ReadOnly = true;
             EmployeeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -253,25 +256,6 @@
             updateDateDataGridViewTextBoxColumn.ReadOnly = true;
             updateDateDataGridViewTextBoxColumn.Visible = false;
             // 
-            // BackBtn
-            // 
-            BackBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
-            BackBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            BackBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            BackBtn.BorderRadius = 10;
-            BackBtn.BorderSize = 0;
-            BackBtn.FlatAppearance.BorderSize = 0;
-            BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            BackBtn.ForeColor = System.Drawing.Color.White;
-            BackBtn.Location = new System.Drawing.Point(411, 6);
-            BackBtn.Name = "BackBtn";
-            BackBtn.Size = new System.Drawing.Size(124, 54);
-            BackBtn.TabIndex = 3;
-            BackBtn.Text = "⬅️ Назад";
-            BackBtn.TextColor = System.Drawing.Color.White;
-            BackBtn.UseVisualStyleBackColor = false;
-            // 
             // FrmEmployeeList
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -290,9 +274,6 @@
             HeaderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tbQuestionBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tbOptionBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbEmployeeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeGridView).EndInit();
             ResumeLayout(false);
@@ -306,15 +287,12 @@
         private RJControlls.RJButton AddEmployeeBtn;
         private System.Windows.Forms.Label EmployeesLabel;
         private RJControlls.RJButton EditEmployeeBtn;
-        private System.Windows.Forms.BindingSource tbOptionBindingSource;
-        private System.Windows.Forms.BindingSource tbQuestionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn answerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn questionIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn variantDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isCorrectDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contextDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn drugIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource spDrugBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isOpenDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource tbEmployeeBindingSource;
