@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             label1 = new System.Windows.Forms.Label();
             FullNameTextBox = new System.Windows.Forms.TextBox();
+            tbEmployeeBindingSource = new System.Windows.Forms.BindingSource(components);
             label2 = new System.Windows.Forms.Label();
             PasswTextBox = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
@@ -40,9 +41,8 @@
             label4 = new System.Windows.Forms.Label();
             StatusComboBox = new System.Windows.Forms.ComboBox();
             spStatusBindingSource = new System.Windows.Forms.BindingSource(components);
-            tbEmployeeBindingSource = new System.Windows.Forms.BindingSource(components);
-            ((System.ComponentModel.ISupportInitialize)spStatusBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbEmployeeBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)spStatusBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -61,6 +61,10 @@
             FullNameTextBox.Name = "FullNameTextBox";
             FullNameTextBox.Size = new System.Drawing.Size(182, 23);
             FullNameTextBox.TabIndex = 1;
+            // 
+            // tbEmployeeBindingSource
+            // 
+            tbEmployeeBindingSource.DataSource = typeof(Models.tbEmployee);
             // 
             // label2
             // 
@@ -132,7 +136,7 @@
             // 
             // StatusComboBox
             // 
-            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", tbEmployeeBindingSource, "Status", true));
+            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", tbEmployeeBindingSource, "Status", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             StatusComboBox.DataSource = spStatusBindingSource;
             StatusComboBox.DisplayMember = "Name";
             StatusComboBox.FormattingEnabled = true;
@@ -145,10 +149,6 @@
             // spStatusBindingSource
             // 
             spStatusBindingSource.DataSource = typeof(Models.spStatus);
-            // 
-            // tbEmployeeBindingSource
-            // 
-            tbEmployeeBindingSource.DataSource = typeof(Models.tbEmployee);
             // 
             // FrmEmployee
             // 
@@ -167,11 +167,14 @@
             Controls.Add(label2);
             Controls.Add(FullNameTextBox);
             Controls.Add(label1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmEmployee";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "FrmEmployee";
             Load += FrmEmployee_Load;
-            ((System.ComponentModel.ISupportInitialize)spStatusBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbEmployeeBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)spStatusBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

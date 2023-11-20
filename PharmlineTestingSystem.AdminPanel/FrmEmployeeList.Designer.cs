@@ -50,6 +50,7 @@
             colCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            BackBtn = new RJControlls.RJButton();
             HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel.SuspendLayout();
@@ -94,6 +95,7 @@
             // panel
             // 
             panel.BackColor = System.Drawing.Color.White;
+            panel.Controls.Add(BackBtn);
             panel.Controls.Add(EditEmployeeBtn);
             panel.Controls.Add(AddEmployeeBtn);
             panel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -113,7 +115,7 @@
             EditEmployeeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             EditEmployeeBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
             EditEmployeeBtn.ForeColor = System.Drawing.Color.White;
-            EditEmployeeBtn.Location = new System.Drawing.Point(174, 6);
+            EditEmployeeBtn.Location = new System.Drawing.Point(159, 6);
             EditEmployeeBtn.Name = "EditEmployeeBtn";
             EditEmployeeBtn.Size = new System.Drawing.Size(150, 54);
             EditEmployeeBtn.TabIndex = 2;
@@ -172,7 +174,7 @@
             EmployeeGridView.Name = "EmployeeGridView";
             EmployeeGridView.ReadOnly = true;
             EmployeeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            EmployeeGridView.Size = new System.Drawing.Size(547, 395);
+            EmployeeGridView.Size = new System.Drawing.Size(547, 569);
             EmployeeGridView.TabIndex = 2;
             // 
             // colId
@@ -251,17 +253,38 @@
             updateDateDataGridViewTextBoxColumn.ReadOnly = true;
             updateDateDataGridViewTextBoxColumn.Visible = false;
             // 
+            // BackBtn
+            // 
+            BackBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            BackBtn.BorderRadius = 10;
+            BackBtn.BorderSize = 0;
+            BackBtn.FlatAppearance.BorderSize = 0;
+            BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            BackBtn.ForeColor = System.Drawing.Color.White;
+            BackBtn.Location = new System.Drawing.Point(411, 6);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new System.Drawing.Size(124, 54);
+            BackBtn.TabIndex = 3;
+            BackBtn.Text = "⬅️ Назад";
+            BackBtn.TextColor = System.Drawing.Color.White;
+            BackBtn.UseVisualStyleBackColor = false;
+            // 
             // FrmEmployeeList
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(547, 538);
+            ClientSize = new System.Drawing.Size(547, 712);
             Controls.Add(EmployeeGridView);
             Controls.Add(panel);
             Controls.Add(HeaderPanel);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmEmployeeList";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            Text = "Вопросы";
+            Text = "Сотрудники";
             Load += FrmEmployeeList_Load;
             HeaderPanel.ResumeLayout(false);
             HeaderPanel.PerformLayout();
@@ -309,5 +332,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreateDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn;
+        private RJControlls.RJButton BackBtn;
     }
 }

@@ -1,7 +1,9 @@
 ﻿using AsbtCore.UtilsV2;
 using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.Models;
+using PharmlineTestingSystem.Shared.ViewModels;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel
@@ -13,7 +15,7 @@ namespace PharmlineTestingSystem.AdminPanel
         public FrmEmployee(tbEmployee employee)
         {
             InitializeComponent();
-            Employee = employee;
+            Employee = employee;            
             this.tbEmployeeBindingSource.DataSource = employee;
         }
 
@@ -23,12 +25,7 @@ namespace PharmlineTestingSystem.AdminPanel
             var statuses = await dico.GetStatusesAsync();
 
             this.StatusComboBox.DataSource = statuses.Data;
-            this.StatusComboBox.TextChanged += StatusComboBox_TextChanged; ;
-        }
-
-        private void StatusComboBox_TextChanged(object sender, EventArgs e)
-        {
-
+            this.StatusComboBox.SelectedValue = Employee.Status;
         }
 
         private void CancelBtn_Click(object sender, EventArgs e) => this.Close();
@@ -36,6 +33,7 @@ namespace PharmlineTestingSystem.AdminPanel
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             Employee = this.tbEmployeeBindingSource.DataSource as tbEmployee;
+            Employee.Status = this.StatusComboBox.SelectedValue.ToInt();
             DialogResult = DialogResult.OK;
         }
     }
