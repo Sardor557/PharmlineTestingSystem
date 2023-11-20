@@ -1,14 +1,9 @@
-﻿using PharmlineTestingSystem.AdminPanel.Services;
+﻿using AsbtCore.UtilsV2;
+using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
 using PharmlineTestingSystem.Shared.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +18,14 @@ namespace PharmlineTestingSystem.AdminPanel
         public FrmQuestionsList()
         {
             InitializeComponent();
-            this.QuestionsGridView.CellFormatting += QuestionsGridView_CellFormatting; ;
+            this.QuestionsGridView.CellFormatting += QuestionsGridView_CellFormatting;
+            this.FormClosed += FrmQuestionsList_FormClosed;
+        }
+
+        private void FrmQuestionsList_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
 
         private void QuestionsGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -35,6 +37,8 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             await GetQuestionsAsync();
             GridRowStyle.SetRowsStyle(this.QuestionsGridView.Rows, 4);
+            var drugs = await DicoService.GetDrugsAsync();
+            this.colDrugId.DataSource = drugs.Data;
         }
 
         private async Task GetQuestionsAsync()
@@ -42,6 +46,26 @@ namespace PharmlineTestingSystem.AdminPanel
             Questions = await QuestionService.GetQuestionsAsync();
             this.QuestionsGridView.DataSource = Questions.Data;
             this.QuestionsGridView.Refresh();
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private async void QuestionsGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (sender is not DataGridView gv) return;
+
+            var row = gv.Rows[0];
+            if (row is null) return;
+
+            int questionId = row.Cells["IdColumn"].Value.ToInt();
+            var options = await QuestionService.GetQuestionOptionsAsync(questionId);
+
+            this.OptionsGridView.DataSource = options.Data;
+
         }
     }
 }

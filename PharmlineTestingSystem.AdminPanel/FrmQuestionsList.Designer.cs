@@ -33,17 +33,14 @@
             QuestionsLabel = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             panel = new System.Windows.Forms.Panel();
+            BackBtn = new RJControlls.RJButton();
             EditQuestionBtn = new RJControlls.RJButton();
             AddQuestionBtn = new RJControlls.RJButton();
             QuestionsGridView = new System.Windows.Forms.DataGridView();
-            spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
-            tbQuestionBindingSource = new System.Windows.Forms.BindingSource(components);
-            splitter1 = new System.Windows.Forms.Splitter();
-            OptionsGridView = new System.Windows.Forms.DataGridView();
-            tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
             colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colContext = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colDrugId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
             drugDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colIsOpen = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +48,9 @@
             colCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tbQuestionBindingSource = new System.Windows.Forms.BindingSource(components);
+            splitter1 = new System.Windows.Forms.Splitter();
+            OptionsGridView = new System.Windows.Forms.DataGridView();
             colOptionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +62,7 @@
             colOptionCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            BackBtn = new RJControlls.RJButton();
+            tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
             HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel.SuspendLayout();
@@ -116,6 +116,26 @@
             panel.Size = new System.Drawing.Size(547, 64);
             panel.TabIndex = 1;
             // 
+            // BackBtn
+            // 
+            BackBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            BackBtn.BorderRadius = 10;
+            BackBtn.BorderSize = 0;
+            BackBtn.FlatAppearance.BorderSize = 0;
+            BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            BackBtn.ForeColor = System.Drawing.Color.White;
+            BackBtn.Location = new System.Drawing.Point(411, 4);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new System.Drawing.Size(124, 54);
+            BackBtn.TabIndex = 4;
+            BackBtn.Text = "⬅️ Назад";
+            BackBtn.TextColor = System.Drawing.Color.White;
+            BackBtn.UseVisualStyleBackColor = false;
+            BackBtn.Click += BackBtn_Click;
+            // 
             // EditQuestionBtn
             // 
             EditQuestionBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -165,51 +185,13 @@
             QuestionsGridView.DataSource = tbQuestionBindingSource;
             QuestionsGridView.Dock = System.Windows.Forms.DockStyle.Top;
             QuestionsGridView.Location = new System.Drawing.Point(0, 141);
+            QuestionsGridView.MultiSelect = false;
             QuestionsGridView.Name = "QuestionsGridView";
             QuestionsGridView.ReadOnly = true;
             QuestionsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             QuestionsGridView.Size = new System.Drawing.Size(547, 335);
             QuestionsGridView.TabIndex = 2;
-            // 
-            // spDrugBindingSource
-            // 
-            spDrugBindingSource.DataSource = typeof(Models.spDrug);
-            // 
-            // tbQuestionBindingSource
-            // 
-            tbQuestionBindingSource.DataSource = typeof(Models.tbQuestion);
-            // 
-            // splitter1
-            // 
-            splitter1.BackColor = System.Drawing.Color.Red;
-            splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            splitter1.Dock = System.Windows.Forms.DockStyle.Top;
-            splitter1.Location = new System.Drawing.Point(0, 476);
-            splitter1.Name = "splitter1";
-            splitter1.Size = new System.Drawing.Size(547, 3);
-            splitter1.TabIndex = 3;
-            splitter1.TabStop = false;
-            // 
-            // OptionsGridView
-            // 
-            OptionsGridView.AutoGenerateColumns = false;
-            OptionsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            OptionsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            OptionsGridView.BackgroundColor = System.Drawing.Color.White;
-            OptionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            OptionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colOptionId, colAnswer, dataGridViewTextBoxColumn5, questionDataGridViewTextBoxColumn, colVariant, colIsCorrect, statusDataGridViewTextBoxColumn, createUserDataGridViewTextBoxColumn, colOptionCreateDate, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
-            OptionsGridView.DataSource = tbOptionBindingSource;
-            OptionsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            OptionsGridView.Location = new System.Drawing.Point(0, 479);
-            OptionsGridView.Name = "OptionsGridView";
-            OptionsGridView.ReadOnly = true;
-            OptionsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            OptionsGridView.Size = new System.Drawing.Size(547, 279);
-            OptionsGridView.TabIndex = 4;
-            // 
-            // tbOptionBindingSource
-            // 
-            tbOptionBindingSource.DataSource = typeof(Models.tbOption);
+            QuestionsGridView.SelectionChanged += QuestionsGridView_SelectionChanged;
             // 
             // colId
             // 
@@ -237,6 +219,10 @@
             colDrugId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             colDrugId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             colDrugId.ValueMember = "Id";
+            // 
+            // spDrugBindingSource
+            // 
+            spDrugBindingSource.DataSource = typeof(Models.spDrug);
             // 
             // drugDataGridViewTextBoxColumn
             // 
@@ -291,6 +277,38 @@
             updateDateDataGridViewTextBoxColumn1.Name = "updateDateDataGridViewTextBoxColumn1";
             updateDateDataGridViewTextBoxColumn1.ReadOnly = true;
             updateDateDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // tbQuestionBindingSource
+            // 
+            tbQuestionBindingSource.DataSource = typeof(Models.tbQuestion);
+            // 
+            // splitter1
+            // 
+            splitter1.BackColor = System.Drawing.Color.Red;
+            splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            splitter1.Dock = System.Windows.Forms.DockStyle.Top;
+            splitter1.Location = new System.Drawing.Point(0, 476);
+            splitter1.Name = "splitter1";
+            splitter1.Size = new System.Drawing.Size(547, 3);
+            splitter1.TabIndex = 3;
+            splitter1.TabStop = false;
+            // 
+            // OptionsGridView
+            // 
+            OptionsGridView.AutoGenerateColumns = false;
+            OptionsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            OptionsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            OptionsGridView.BackgroundColor = System.Drawing.Color.White;
+            OptionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            OptionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colOptionId, colAnswer, dataGridViewTextBoxColumn5, questionDataGridViewTextBoxColumn, colVariant, colIsCorrect, statusDataGridViewTextBoxColumn, createUserDataGridViewTextBoxColumn, colOptionCreateDate, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
+            OptionsGridView.DataSource = tbOptionBindingSource;
+            OptionsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            OptionsGridView.Location = new System.Drawing.Point(0, 479);
+            OptionsGridView.Name = "OptionsGridView";
+            OptionsGridView.ReadOnly = true;
+            OptionsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            OptionsGridView.Size = new System.Drawing.Size(547, 279);
+            OptionsGridView.TabIndex = 4;
             // 
             // colOptionId
             // 
@@ -375,29 +393,15 @@
             updateDateDataGridViewTextBoxColumn.ReadOnly = true;
             updateDateDataGridViewTextBoxColumn.Visible = false;
             // 
-            // BackBtn
+            // tbOptionBindingSource
             // 
-            BackBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
-            BackBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            BackBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            BackBtn.BorderRadius = 10;
-            BackBtn.BorderSize = 0;
-            BackBtn.FlatAppearance.BorderSize = 0;
-            BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            BackBtn.ForeColor = System.Drawing.Color.White;
-            BackBtn.Location = new System.Drawing.Point(411, 4);
-            BackBtn.Name = "BackBtn";
-            BackBtn.Size = new System.Drawing.Size(124, 54);
-            BackBtn.TabIndex = 4;
-            BackBtn.Text = "⬅️ Назад";
-            BackBtn.TextColor = System.Drawing.Color.White;
-            BackBtn.UseVisualStyleBackColor = false;
+            tbOptionBindingSource.DataSource = typeof(Models.tbOption);
             // 
             // FrmQuestionsList
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            CancelButton = BackBtn;
             ClientSize = new System.Drawing.Size(547, 758);
             Controls.Add(OptionsGridView);
             Controls.Add(splitter1);
@@ -405,6 +409,7 @@
             Controls.Add(panel);
             Controls.Add(HeaderPanel);
             Name = "FrmQuestionsList";
+            ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Вопросы";
             Load += FrmQuestionsList_Load;

@@ -260,6 +260,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            CancelButton = BackBtn;
             ClientSize = new System.Drawing.Size(547, 712);
             Controls.Add(EmployeeGridView);
             Controls.Add(panel);
@@ -267,6 +268,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmEmployeeList";
+            ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Сотрудники";
             Load += FrmEmployeeList_Load;

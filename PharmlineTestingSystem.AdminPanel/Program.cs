@@ -36,6 +36,7 @@ namespace PharmlineTestingSystem.AdminPanel
                 Message = ee.GetAllMessages(),
                 Method = "Program.CurrentDomain_UnhandledException"
             };
+            MessageBox.Show(ee.GetAllMessages(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             CLogJson.Write(li);
         }
         private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
@@ -48,6 +49,7 @@ namespace PharmlineTestingSystem.AdminPanel
                 Message = ee.GetAllMessages(),
                 Method = "Program.Application_ThreadException"
             };
+            MessageBox.Show(e.Exception.GetAllMessages(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             CLogJson.Write(li);
         }
     }

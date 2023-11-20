@@ -6,7 +6,6 @@ namespace PharmlineTestingSystem.AdminPanel
 {
     public partial class FrmMain : Form
     {
-
         public FrmMain()
         {
             InitializeComponent();

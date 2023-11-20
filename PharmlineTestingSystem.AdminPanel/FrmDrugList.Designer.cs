@@ -234,11 +234,13 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            CancelButton = BackBtn;
             ClientSize = new System.Drawing.Size(539, 712);
             Controls.Add(DrugsGridView);
             Controls.Add(panel);
             Controls.Add(HeaderPanel);
             Name = "FrmDrugList";
+            ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Препараты";
             Load += FrmDrugList_Load;
