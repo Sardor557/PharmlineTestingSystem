@@ -95,11 +95,13 @@
             // StatusComboBox
             // 
             StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", spDrugBindingSource, "Status", true));
+            StatusComboBox.DisplayMember = "Name";
             StatusComboBox.FormattingEnabled = true;
             StatusComboBox.Location = new System.Drawing.Point(304, 35);
             StatusComboBox.Name = "StatusComboBox";
             StatusComboBox.Size = new System.Drawing.Size(121, 23);
             StatusComboBox.TabIndex = 13;
+            StatusComboBox.ValueMember = "Id";
             // 
             // FrmDrug
             // 
@@ -117,6 +119,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmDrug";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Препарат";
             Load += FrmDrug_Load;
             ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).EndInit();

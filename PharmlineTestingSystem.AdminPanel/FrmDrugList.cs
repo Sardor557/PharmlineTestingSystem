@@ -3,6 +3,7 @@ using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
 using PharmlineTestingSystem.Shared.ViewModels;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,17 +18,25 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             InitializeComponent();
             this.DrugsGridView.CellFormatting += DrugGridView_CellFormatting;
+            this.FormClosed += FrmDrugList_FormClosed;
+
+        }
+
+        private void FrmDrugList_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+            this.Close();
         }
 
         private async void FrmDrugList_Load(object sender, EventArgs e)
         {
             await GetDrugsAsync();
-            GridRowStyle.SetRowsStyle(this.DrugsGridView.Rows, 3);
+            GridRowStyle.SetRowsStyle(this.DrugsGridView.Rows, 2);
         }
 
         private void DrugGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            GridRowStyle.SetRowsStyle(this.DrugsGridView.Rows, 3);
+            GridRowStyle.SetRowsStyle(this.DrugsGridView.Rows, 2);
         }
 
         private async Task GetDrugsAsync()

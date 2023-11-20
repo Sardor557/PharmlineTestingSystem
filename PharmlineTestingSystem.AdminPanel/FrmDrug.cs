@@ -2,13 +2,6 @@
 using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel
@@ -23,6 +16,12 @@ namespace PharmlineTestingSystem.AdminPanel
             InitializeComponent();
             Drug = drug;
             this.spDrugBindingSource.DataSource = drug;
+            this.StatusComboBox.LostFocus += StatusComboBox_LostFocus;
+        }
+
+        private void StatusComboBox_LostFocus(object sender, EventArgs e)
+        {
+            this.NameTextBox.Focus();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e) => this.Close();

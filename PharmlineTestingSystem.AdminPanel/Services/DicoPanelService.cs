@@ -45,7 +45,10 @@ namespace PharmlineTestingSystem.AdminPanel.Services
 
         public async ValueTask<Answer<spDrug[]>> GetDrugsAsync(int? status = null)
         {
-            throw new NotImplementedException();
+            var res = await client.GetApiAsync<Answer<spDrug[]>>(ServerUrl + $"Dico/drugs", Vars.Token);
+            if (!res.IsSuccess)
+                MessageBox.Show(res.Message);
+            return res;
         }
 
         public async ValueTask<Answer<tbEmployee[]>> GetEmployeesAsync()

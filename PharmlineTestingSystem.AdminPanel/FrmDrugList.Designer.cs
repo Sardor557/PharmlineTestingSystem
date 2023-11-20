@@ -38,8 +38,8 @@
             HeaderPanel = new System.Windows.Forms.Panel();
             DrugsGridView = new System.Windows.Forms.DataGridView();
             idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             createUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -162,13 +162,14 @@
             DrugsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             DrugsGridView.BackgroundColor = System.Drawing.Color.White;
             DrugsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DrugsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, createUserDataGridViewTextBoxColumn, createDateDataGridViewTextBoxColumn, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
+            DrugsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, colName, colStatus, createUserDataGridViewTextBoxColumn, createDateDataGridViewTextBoxColumn, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
             DrugsGridView.DataSource = spDrugBindingSource;
             DrugsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             DrugsGridView.Location = new System.Drawing.Point(0, 143);
             DrugsGridView.MultiSelect = false;
             DrugsGridView.Name = "DrugsGridView";
             DrugsGridView.ReadOnly = true;
+            DrugsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             DrugsGridView.Size = new System.Drawing.Size(539, 569);
             DrugsGridView.TabIndex = 5;
             // 
@@ -179,20 +180,20 @@
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // colName
             // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            colName.DataPropertyName = "Name";
+            colName.HeaderText = "Наименование";
+            colName.Name = "colName";
+            colName.ReadOnly = true;
             // 
-            // statusDataGridViewTextBoxColumn
+            // colStatus
             // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            statusDataGridViewTextBoxColumn.Visible = false;
+            colStatus.DataPropertyName = "Status";
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
+            colStatus.Visible = false;
             // 
             // createUserDataGridViewTextBoxColumn
             // 
@@ -238,6 +239,7 @@
             Controls.Add(panel);
             Controls.Add(HeaderPanel);
             Name = "FrmDrugList";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "Препараты";
             Load += FrmDrugList_Load;
             panel.ResumeLayout(false);
@@ -261,8 +263,8 @@
         private System.Windows.Forms.DataGridView DrugsGridView;
         private System.Windows.Forms.BindingSource spDrugBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn createUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateUserDataGridViewTextBoxColumn;

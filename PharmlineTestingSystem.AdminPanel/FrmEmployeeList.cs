@@ -17,6 +17,13 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             InitializeComponent();
             this.EmployeeGridView.CellFormatting += EmployeeGridView_CellFormatting;
+            this.FormClosed += FrmEmployeeList_FormClosed;
+        }
+
+        private void FrmEmployeeList_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+            this.Close();
         }
 
         private void EmployeeGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

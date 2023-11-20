@@ -29,11 +29,14 @@ namespace PharmlineTestingSystem.Repository.Services
         {
             try
             {
-                var drugs = await db.spDrugs
+                var query = db.spDrugs
                     .AsNoTracking()
-                    .Where(x => x.Status == status)
-                    .OrderBy(x => x.Name)
-                    .ToArrayAsync();
+                    .OrderBy(x => x.Name);
+                    
+                if (status.HasValue)
+                    query.Where(x => x.Status == status.Value);
+
+                var drugs = await query.ToArrayAsync();
 
                 return new Answer<spDrug[]>(true, "", drugs);
             }
@@ -58,7 +61,7 @@ namespace PharmlineTestingSystem.Repository.Services
                 await db.SaveChangesAsync();
                 await tran.CommitAsync();
 
-                return new AnswerBasic(true, "");
+                return new AnswerBasic(true, "OK");
             }
             catch (Exception ex)
             {

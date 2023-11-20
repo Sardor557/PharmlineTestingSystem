@@ -31,5 +31,11 @@ namespace PharmlineTestingSystem.AdminPanel
             var frmEmployeeList = new FrmEmployeeList();
             frmEmployeeList.ShowDialog();
         }
+
+        private void DrugsBtn_Click(object sender, System.EventArgs e)
+        {
+            var frmDrugList = new FrmDrugList();
+            frmDrugList.ShowDialog();
+        }
     }
 }

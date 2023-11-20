@@ -95,6 +95,7 @@
             DrugsBtn.Text = "Препараты";
             DrugsBtn.TextColor = System.Drawing.Color.White;
             DrugsBtn.UseVisualStyleBackColor = false;
+            DrugsBtn.Click += DrugsBtn_Click;
             // 
             // EmployeeBtn
             // 
