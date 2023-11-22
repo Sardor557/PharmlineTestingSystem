@@ -86,7 +86,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
                 await tran.CommitAsync();
 
-                return new Answer<int>(true, "", question.Id);
+                return new Answer<int>(true, "OK", question.Id);
             }
             catch (Exception ex)
             {
@@ -145,7 +145,7 @@ namespace PharmlineTestingSystem.Repository.Services
                 await db.SaveChangesAsync();
                 await tran.CommitAsync();
 
-                return new AnswerBasic(true, "");
+                return new AnswerBasic(true, "OK");
             }
             catch (Exception ex)
             {

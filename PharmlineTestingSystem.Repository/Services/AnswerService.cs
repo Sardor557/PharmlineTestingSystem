@@ -39,5 +39,41 @@ namespace PharmlineTestingSystem.Repository.Services
                 return new Answer<tbAnswer[]>(false, "Ошибка");
             }
         }
+
+        public async ValueTask<Answer<viAnswer[]>> GetAnswersAsync()
+        {
+            try
+            {
+                var answer = await db.tbAnswers
+                    .AsNoTracking()
+                    .Include(x => x.Employee)
+                    .Include(x => x.Question).ThenInclude(x => x.Drug)
+                    .Include(x => x.Option)
+                    .Select(x => new viAnswer
+                    {
+                        Id = x.Id,
+                        AnswerDate = x.CreateDate,
+                        DrugId = x.Question.DrugId,
+                        Drug = x.Question.Drug.Name,
+                        EmployeeId = x.EmployeeId,
+                        EmployeeName = x.Employee.FullName,
+                        OptionId = x.OptionId,
+                        Option = x.Option.Answer,
+                        IsCorrect = x.Option.IsCorrect,
+                        QuestionId = x.QuestionId,
+                        Question = x.Question.Context
+                    })
+                    .OrderBy(x => x.AnswerDate)
+                    .ToArrayAsync();
+
+                return new Answer<viAnswer[]>(true, "", answer);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("QuestionService.GetQuestionAnwersAsync error:{0}", ex.GetAllMessages());
+                return new Answer<viAnswer[]>(false, "Ошибка");
+
+            }
+        }
     }
 }

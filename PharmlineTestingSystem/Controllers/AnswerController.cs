@@ -20,5 +20,8 @@ namespace PharmlineTestingSystem.Controllers
 
         [HttpGet("question/{questionId}")]
         public ValueTask<Answer<tbAnswer[]>> GetQuestionAnwersAsync(int questionId) => service.GetQuestionAnwersAsync(questionId);
+
+        [HttpGet]
+        public ValueTask<Answer<viAnswer[]>> GetAnswersAsync() => service.GetAnswersAsync();
     }
 }

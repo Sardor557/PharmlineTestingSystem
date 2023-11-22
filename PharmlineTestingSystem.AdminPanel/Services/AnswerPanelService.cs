@@ -22,9 +22,17 @@ namespace PharmlineTestingSystem.AdminPanel.Services
             this.client = new CRestClient();
         }
 
+        public async ValueTask<Answer<viAnswer[]>> GetAnswersAsync()
+        {
+            var res = await client.GetApiAsync<Answer<viAnswer[]>>(ServerUrl + $"Answer", Vars.Token);
+            if (!res.IsSuccess)
+                MessageBox.Show(res.Message);
+            return res;
+        }
+
         public async ValueTask<Answer<tbAnswer[]>> GetQuestionAnwersAsync(int questionId)
         {
-            var res = await client.GetApiAsync<Answer<tbAnswer[]>>(ServerUrl + $"question/{questionId}", Vars.Token);
+            var res = await client.GetApiAsync<Answer<tbAnswer[]>>(ServerUrl + $"Answer/question/{questionId}", Vars.Token);
             if (!res.IsSuccess)
                 MessageBox.Show(res.Message);
             return res;
