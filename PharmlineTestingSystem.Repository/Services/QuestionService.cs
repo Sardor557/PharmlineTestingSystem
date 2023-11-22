@@ -62,10 +62,11 @@ namespace PharmlineTestingSystem.Repository.Services
             var tran = await db.Database.BeginTransactionAsync();
             try
             {
+                int userId = accessor.GetId();
                 question.Validate();
 
                 question.CreateDate = DateTime.Now;
-                question.CreateUser = accessor.GetId();
+                question.CreateUser = userId;
 
                 var options = question.Options;
                 question.Options = null;
@@ -74,7 +75,8 @@ namespace PharmlineTestingSystem.Repository.Services
                 await db.tbQuestions.AddAsync(question);
                 await db.SaveChangesAsync();
 
-                options = options.Select(x => { x.QuestionId = question.Id; return x; }).ToList();
+                options = options.Select(x => { x.QuestionId = question.Id; x.CreateDate = DateTime.Now;
+                    x.CreateUser = userId; return x; }).ToList();
 
                 await db.tbOptions.AddRangeAsync(options);
                 await db.SaveChangesAsync();

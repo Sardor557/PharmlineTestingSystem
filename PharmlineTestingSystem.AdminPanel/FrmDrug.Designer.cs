@@ -36,7 +36,9 @@
             spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
             StatusLabel = new System.Windows.Forms.Label();
             StatusComboBox = new System.Windows.Forms.ComboBox();
+            spStatusBindingSource = new System.Windows.Forms.BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)spStatusBindingSource).BeginInit();
             SuspendLayout();
             // 
             // CancelBtn
@@ -94,7 +96,7 @@
             // 
             // StatusComboBox
             // 
-            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", spDrugBindingSource, "Status", true));
+            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", spStatusBindingSource, "Id", true));
             StatusComboBox.DisplayMember = "Name";
             StatusComboBox.FormattingEnabled = true;
             StatusComboBox.Location = new System.Drawing.Point(304, 35);
@@ -102,6 +104,10 @@
             StatusComboBox.Size = new System.Drawing.Size(121, 23);
             StatusComboBox.TabIndex = 13;
             StatusComboBox.ValueMember = "Id";
+            // 
+            // spStatusBindingSource
+            // 
+            spStatusBindingSource.DataSource = typeof(Models.spStatus);
             // 
             // FrmDrug
             // 
@@ -123,6 +129,7 @@
             Text = "Препарат";
             Load += FrmDrug_Load;
             ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)spStatusBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,5 +143,6 @@
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.ComboBox StatusComboBox;
         private System.Windows.Forms.BindingSource spDrugBindingSource;
+        private System.Windows.Forms.BindingSource spStatusBindingSource;
     }
 }

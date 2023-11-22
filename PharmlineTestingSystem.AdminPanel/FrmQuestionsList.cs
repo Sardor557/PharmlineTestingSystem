@@ -35,10 +35,11 @@ namespace PharmlineTestingSystem.AdminPanel
 
         private async void FrmQuestionsList_Load(object sender, EventArgs e)
         {
-            await GetQuestionsAsync();
             GridRowStyle.SetRowsStyle(this.QuestionsGridView.Rows, 4);
             var drugs = await DicoService.GetDrugsAsync();
             this.colDrugId.DataSource = drugs.Data;
+            await GetQuestionsAsync();
+
         }
 
         private async Task GetQuestionsAsync()
@@ -61,10 +62,29 @@ namespace PharmlineTestingSystem.AdminPanel
             var row = gv.Rows[0];
             if (row is null) return;
 
-            int questionId = row.Cells["IdColumn"].Value.ToInt();
+            int questionId = row.Cells["colId"].Value.ToInt();
             var options = await QuestionService.GetQuestionOptionsAsync(questionId);
 
             this.OptionsGridView.DataSource = options.Data;
+
+        }
+
+        private async void AddQuestionBtn_Click(object sender, EventArgs e)
+        {
+            var question = new tbQuestion();
+            var frmQuestion = new FrmQuestion(question);
+
+            if (frmQuestion.ShowDialog() != DialogResult.OK) return;
+
+            frmQuestion.Dispose();
+
+            var res = await QuestionService.AddQuestionAsync(question);
+            MessageBox.Show(res.Message);
+            await GetQuestionsAsync();
+        }
+
+        private void EditQuestionBtn_Click(object sender, EventArgs e)
+        {
 
         }
     }

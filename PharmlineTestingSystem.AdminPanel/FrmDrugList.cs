@@ -3,7 +3,6 @@ using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
 using PharmlineTestingSystem.Shared.ViewModels;
 using System;
-using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 

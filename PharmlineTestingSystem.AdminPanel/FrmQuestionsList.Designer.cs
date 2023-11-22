@@ -41,7 +41,6 @@
             colContext = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colDrugId = new System.Windows.Forms.DataGridViewComboBoxColumn();
             spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
-            drugDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colIsOpen = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             createUserDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,6 +153,7 @@
             EditQuestionBtn.Text = "Изменить вопрос";
             EditQuestionBtn.TextColor = System.Drawing.Color.White;
             EditQuestionBtn.UseVisualStyleBackColor = false;
+            EditQuestionBtn.Click += EditQuestionBtn_Click;
             // 
             // AddQuestionBtn
             // 
@@ -173,6 +173,7 @@
             AddQuestionBtn.Text = "Добавить вопрос";
             AddQuestionBtn.TextColor = System.Drawing.Color.White;
             AddQuestionBtn.UseVisualStyleBackColor = false;
+            AddQuestionBtn.Click += AddQuestionBtn_Click;
             // 
             // QuestionsGridView
             // 
@@ -181,7 +182,7 @@
             QuestionsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             QuestionsGridView.BackgroundColor = System.Drawing.Color.White;
             QuestionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            QuestionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colId, colContext, colDrugId, drugDataGridViewTextBoxColumn, colIsOpen, statusDataGridViewTextBoxColumn1, createUserDataGridViewTextBoxColumn1, colCreateDate, updateUserDataGridViewTextBoxColumn1, updateDateDataGridViewTextBoxColumn1 });
+            QuestionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colId, colContext, colDrugId, colIsOpen, statusDataGridViewTextBoxColumn1, createUserDataGridViewTextBoxColumn1, colCreateDate, updateUserDataGridViewTextBoxColumn1, updateDateDataGridViewTextBoxColumn1 });
             QuestionsGridView.DataSource = tbQuestionBindingSource;
             QuestionsGridView.Dock = System.Windows.Forms.DockStyle.Top;
             QuestionsGridView.Location = new System.Drawing.Point(0, 141);
@@ -209,6 +210,7 @@
             // 
             // colDrugId
             // 
+            colDrugId.AutoComplete = false;
             colDrugId.DataPropertyName = "DrugId";
             colDrugId.DataSource = spDrugBindingSource;
             colDrugId.DisplayMember = "Name";
@@ -223,14 +225,6 @@
             // spDrugBindingSource
             // 
             spDrugBindingSource.DataSource = typeof(Models.spDrug);
-            // 
-            // drugDataGridViewTextBoxColumn
-            // 
-            drugDataGridViewTextBoxColumn.DataPropertyName = "Drug";
-            drugDataGridViewTextBoxColumn.HeaderText = "Drug";
-            drugDataGridViewTextBoxColumn.Name = "drugDataGridViewTextBoxColumn";
-            drugDataGridViewTextBoxColumn.ReadOnly = true;
-            drugDataGridViewTextBoxColumn.Visible = false;
             // 
             // colIsOpen
             // 
@@ -448,16 +442,6 @@
         private System.Windows.Forms.BindingSource spDrugBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isOpenDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colContext;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colDrugId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drugDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colIsOpen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createUserDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updateUserDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOptionId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAnswer;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -470,5 +454,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updateUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn;
         private RJControlls.RJButton BackBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colContext;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colDrugId;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colIsOpen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createUserDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updateUserDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn1;
     }
 }

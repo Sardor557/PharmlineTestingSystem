@@ -136,7 +136,8 @@
             // 
             // StatusComboBox
             // 
-            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", tbEmployeeBindingSource, "Status", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            StatusComboBox.CausesValidation = false;
+            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", spStatusBindingSource, "Id", true));
             StatusComboBox.DataSource = spStatusBindingSource;
             StatusComboBox.DisplayMember = "Name";
             StatusComboBox.FormattingEnabled = true;
@@ -144,7 +145,7 @@
             StatusComboBox.Name = "StatusComboBox";
             StatusComboBox.Size = new System.Drawing.Size(137, 23);
             StatusComboBox.TabIndex = 10;
-            StatusComboBox.ValueMember = "Id";
+            StatusComboBox.ValueMember = "ID";
             // 
             // spStatusBindingSource
             // 

@@ -1,9 +1,7 @@
 ﻿using AsbtCore.UtilsV2;
 using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.Models;
-using PharmlineTestingSystem.Shared.ViewModels;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel

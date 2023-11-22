@@ -47,9 +47,9 @@
             QuestionsBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             QuestionsBtn.ForeColor = System.Drawing.Color.White;
             QuestionsBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            QuestionsBtn.Location = new System.Drawing.Point(39, 36);
+            QuestionsBtn.Location = new System.Drawing.Point(31, 36);
             QuestionsBtn.Name = "QuestionsBtn";
-            QuestionsBtn.Size = new System.Drawing.Size(189, 119);
+            QuestionsBtn.Size = new System.Drawing.Size(205, 119);
             QuestionsBtn.TabIndex = 0;
             QuestionsBtn.Text = "Вопросы";
             QuestionsBtn.TextColor = System.Drawing.Color.White;
@@ -68,9 +68,9 @@
             AnswersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             AnswersBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             AnswersBtn.ForeColor = System.Drawing.Color.White;
-            AnswersBtn.Location = new System.Drawing.Point(251, 36);
+            AnswersBtn.Location = new System.Drawing.Point(264, 36);
             AnswersBtn.Name = "AnswersBtn";
-            AnswersBtn.Size = new System.Drawing.Size(189, 119);
+            AnswersBtn.Size = new System.Drawing.Size(205, 119);
             AnswersBtn.TabIndex = 1;
             AnswersBtn.Text = "Ответы";
             AnswersBtn.TextColor = System.Drawing.Color.White;
@@ -88,9 +88,9 @@
             DrugsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             DrugsBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             DrugsBtn.ForeColor = System.Drawing.Color.White;
-            DrugsBtn.Location = new System.Drawing.Point(463, 36);
+            DrugsBtn.Location = new System.Drawing.Point(31, 210);
             DrugsBtn.Name = "DrugsBtn";
-            DrugsBtn.Size = new System.Drawing.Size(197, 119);
+            DrugsBtn.Size = new System.Drawing.Size(205, 119);
             DrugsBtn.TabIndex = 2;
             DrugsBtn.Text = "Препараты";
             DrugsBtn.TextColor = System.Drawing.Color.White;
@@ -109,7 +109,7 @@
             EmployeeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             EmployeeBtn.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             EmployeeBtn.ForeColor = System.Drawing.Color.White;
-            EmployeeBtn.Location = new System.Drawing.Point(710, 36);
+            EmployeeBtn.Location = new System.Drawing.Point(264, 210);
             EmployeeBtn.Name = "EmployeeBtn";
             EmployeeBtn.Size = new System.Drawing.Size(205, 119);
             EmployeeBtn.TabIndex = 3;
@@ -124,7 +124,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Indigo;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            ClientSize = new System.Drawing.Size(964, 186);
+            ClientSize = new System.Drawing.Size(508, 374);
             Controls.Add(EmployeeBtn);
             Controls.Add(DrugsBtn);
             Controls.Add(AnswersBtn);
