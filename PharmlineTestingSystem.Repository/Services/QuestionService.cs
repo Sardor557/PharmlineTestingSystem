@@ -140,7 +140,6 @@ namespace PharmlineTestingSystem.Repository.Services
                     existOption.Answer = option.Answer;
                     existOption.QuestionId = option.QuestionId;
                     existOption.Variant = option.Variant;
-
                 }
 
                 await db.SaveChangesAsync();

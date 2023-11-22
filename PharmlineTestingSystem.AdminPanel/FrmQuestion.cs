@@ -18,6 +18,19 @@ namespace PharmlineTestingSystem.AdminPanel
             InitializeComponent();
             Question = question;
             this.tbQuestionBindingSource.DataSource = question;
+            this.OptionsGridView.CellEnter += OptionsGridView_CellEnter;
+        }
+
+        private void OptionsGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            bool validClick = (e.RowIndex != -1 && e.ColumnIndex != -1);
+            var datagridview = sender as DataGridView;
+
+            if (datagridview.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick)
+            {
+                datagridview.BeginEdit(true);
+                ((ComboBox)datagridview.EditingControl).DroppedDown = true;
+            }
         }
 
         private async void FrmQuestion_Load(object sender, EventArgs e)
@@ -42,9 +55,8 @@ namespace PharmlineTestingSystem.AdminPanel
             Question.Status = this.StatusComboBox.SelectedValue.ToInt();
 
             Question.Options = new List<tbOption>();
-            for (int i = 0; i < OptionsGridView.Rows.Count; i++)
+            foreach (DataGridViewRow row in OptionsGridView.Rows)
             {
-                DataGridViewRow row = OptionsGridView.Rows[i];
                 if (row.IsNewRow) continue;
 
                 var option = new tbOption();
@@ -63,7 +75,6 @@ namespace PharmlineTestingSystem.AdminPanel
             }
 
             Question.IsOpen = isOpen;
-
             DialogResult = DialogResult.OK;
         }
     }
