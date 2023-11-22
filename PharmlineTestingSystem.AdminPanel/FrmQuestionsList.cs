@@ -4,6 +4,7 @@ using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
 using PharmlineTestingSystem.Shared.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -59,13 +60,14 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             if (sender is not DataGridView gv) return;
 
-            var row = gv.Rows[0];
+            var row = gv.SelectedRows[0];
             if (row is null) return;
 
             int questionId = row.Cells["colId"].Value.ToInt();
-            var options = await QuestionService.GetQuestionOptionsAsync(questionId);
 
+            var options = await QuestionService.GetQuestionOptionsAsync(questionId);
             this.OptionsGridView.DataSource = options.Data;
+            this.OptionsGridView.Refresh();
 
         }
 
@@ -83,9 +85,47 @@ namespace PharmlineTestingSystem.AdminPanel
             await GetQuestionsAsync();
         }
 
-        private void EditQuestionBtn_Click(object sender, EventArgs e)
+        private async void EditQuestionBtn_Click(object sender, EventArgs e)
         {
+            var questionCells = this.QuestionsGridView.SelectedRows[0].Cells;
+            var question = new tbQuestion();
+            question.Id = questionCells["colId"].Value.ToInt();
+            question.Context = questionCells["colContext"].Value.ToString();
+            question.DrugId = questionCells["colDrugId"].Value.ToInt();
 
+            var isOpen = questionCells["colIsOpen"].Value;
+            question.IsOpen = isOpen != null && Convert.ToBoolean(isOpen);
+
+            question.Status = questionCells["colStatus"].Value.ToInt();
+
+            var optionRows = this.OptionsGridView.Rows;
+
+            question.Options = new List<tbOption>();
+            foreach (DataGridViewRow row in optionRows)
+            {
+                var cells = row.Cells;
+
+                var option = new tbOption();
+                option.Id = cells["colOptionId"].Value.ToInt();
+                option.Answer = cells["colAnswer"].Value.ToString();
+                option.QuestionId = question.Id;
+
+                var isCorrect = cells["colIsCorrect"].Value;
+                option.IsCorrect = isCorrect != null && Convert.ToBoolean(isCorrect);
+
+                option.Status = cells["colOptionStatus"].Value.ToInt();
+                option.Variant = cells["colVariant"].Value.ToString();
+
+                question.Options.Add(option);
+            }
+
+            var frmQuestion = new FrmQuestion(question);
+            if (frmQuestion.ShowDialog() != DialogResult.OK) return;
+
+            frmQuestion.Dispose();
+            var res = await QuestionService.EditQuestionAsync(question);
+            MessageBox.Show(res.Message);
+            await GetQuestionsAsync();
         }
     }
 }

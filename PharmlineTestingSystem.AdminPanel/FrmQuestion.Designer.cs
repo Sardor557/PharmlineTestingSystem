@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             DrugLabel = new System.Windows.Forms.Label();
             DrugComboBox = new System.Windows.Forms.ComboBox();
             spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
@@ -39,23 +39,22 @@
             ContextLabel = new System.Windows.Forms.Label();
             IsOpencheckBox = new System.Windows.Forms.CheckBox();
             OptionsGridView = new System.Windows.Forms.DataGridView();
-            idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            colAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            questionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            questionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            colVariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            colIsCorrect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            colStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             spStatusBindingSource = new System.Windows.Forms.BindingSource(components);
-            createUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
             SaveOptionsBtn = new System.Windows.Forms.Button();
             StatusLabel = new System.Windows.Forms.Label();
             StatusComboBox = new System.Windows.Forms.ComboBox();
             BackBtn = new System.Windows.Forms.Button();
+            colOptionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colQuestionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colVariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            colIsCorrect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            colStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            createUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbQuestionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OptionsGridView).BeginInit();
@@ -135,7 +134,7 @@
             OptionsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             OptionsGridView.BackgroundColor = System.Drawing.Color.White;
             OptionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            OptionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, colAnswer, questionIdDataGridViewTextBoxColumn, questionDataGridViewTextBoxColumn, colVariant, colIsCorrect, colStatus, createUserDataGridViewTextBoxColumn, createDateDataGridViewTextBoxColumn, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
+            OptionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colOptionId, colAnswer, colQuestionId, colVariant, colIsCorrect, colStatus, createUserDataGridViewTextBoxColumn, createDateDataGridViewTextBoxColumn, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
             OptionsGridView.DataSource = tbOptionBindingSource;
             OptionsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             OptionsGridView.Location = new System.Drawing.Point(0, 302);
@@ -144,94 +143,9 @@
             OptionsGridView.Size = new System.Drawing.Size(659, 365);
             OptionsGridView.TabIndex = 5;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            idDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // colAnswer
-            // 
-            colAnswer.DataPropertyName = "Answer";
-            colAnswer.HeaderText = "Ответ";
-            colAnswer.Name = "colAnswer";
-            // 
-            // questionIdDataGridViewTextBoxColumn
-            // 
-            questionIdDataGridViewTextBoxColumn.DataPropertyName = "QuestionId";
-            questionIdDataGridViewTextBoxColumn.HeaderText = "QuestionId";
-            questionIdDataGridViewTextBoxColumn.Name = "questionIdDataGridViewTextBoxColumn";
-            questionIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // questionDataGridViewTextBoxColumn
-            // 
-            questionDataGridViewTextBoxColumn.DataPropertyName = "Question";
-            questionDataGridViewTextBoxColumn.HeaderText = "Question";
-            questionDataGridViewTextBoxColumn.Name = "questionDataGridViewTextBoxColumn";
-            questionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // colVariant
-            // 
-            colVariant.DataPropertyName = "Variant";
-            colVariant.HeaderText = "Вариант";
-            colVariant.Name = "colVariant";
-            // 
-            // colIsCorrect
-            // 
-            colIsCorrect.DataPropertyName = "IsCorrect";
-            colIsCorrect.FalseValue = "false";
-            colIsCorrect.HeaderText = "Правильность";
-            colIsCorrect.Name = "colIsCorrect";
-            colIsCorrect.TrueValue = "true";
-            // 
-            // colStatus
-            // 
-            colStatus.DataPropertyName = "Status";
-            colStatus.DataSource = spStatusBindingSource;
-            colStatus.DisplayMember = "Name";
-            colStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            colStatus.HeaderText = "Статус";
-            colStatus.Name = "colStatus";
-            colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            colStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            colStatus.ValueMember = "Id";
-            // 
             // spStatusBindingSource
             // 
             spStatusBindingSource.DataSource = typeof(Models.spStatus);
-            // 
-            // createUserDataGridViewTextBoxColumn
-            // 
-            createUserDataGridViewTextBoxColumn.DataPropertyName = "CreateUser";
-            createUserDataGridViewTextBoxColumn.HeaderText = "CreateUser";
-            createUserDataGridViewTextBoxColumn.Name = "createUserDataGridViewTextBoxColumn";
-            createUserDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // createDateDataGridViewTextBoxColumn
-            // 
-            createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDate";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            createDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            createDateDataGridViewTextBoxColumn.HeaderText = "Дата создания";
-            createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
-            createDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // updateUserDataGridViewTextBoxColumn
-            // 
-            updateUserDataGridViewTextBoxColumn.DataPropertyName = "UpdateUser";
-            updateUserDataGridViewTextBoxColumn.HeaderText = "UpdateUser";
-            updateUserDataGridViewTextBoxColumn.Name = "updateUserDataGridViewTextBoxColumn";
-            updateUserDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // updateDateDataGridViewTextBoxColumn
-            // 
-            updateDateDataGridViewTextBoxColumn.DataPropertyName = "UpdateDate";
-            updateDateDataGridViewTextBoxColumn.HeaderText = "UpdateDate";
-            updateDateDataGridViewTextBoxColumn.Name = "updateDateDataGridViewTextBoxColumn";
-            updateDateDataGridViewTextBoxColumn.Visible = false;
             // 
             // tbOptionBindingSource
             // 
@@ -284,6 +198,84 @@
             BackBtn.Text = "Отмена";
             BackBtn.UseVisualStyleBackColor = false;
             // 
+            // colOptionId
+            // 
+            colOptionId.DataPropertyName = "Id";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            colOptionId.DefaultCellStyle = dataGridViewCellStyle1;
+            colOptionId.HeaderText = "Id";
+            colOptionId.Name = "colOptionId";
+            colOptionId.ReadOnly = true;
+            // 
+            // colAnswer
+            // 
+            colAnswer.DataPropertyName = "Answer";
+            colAnswer.HeaderText = "Ответ";
+            colAnswer.Name = "colAnswer";
+            // 
+            // colQuestionId
+            // 
+            colQuestionId.DataPropertyName = "QuestionId";
+            colQuestionId.HeaderText = "QuestionId";
+            colQuestionId.Name = "colQuestionId";
+            colQuestionId.Visible = false;
+            // 
+            // colVariant
+            // 
+            colVariant.DataPropertyName = "Variant";
+            colVariant.HeaderText = "Вариант";
+            colVariant.Name = "colVariant";
+            // 
+            // colIsCorrect
+            // 
+            colIsCorrect.DataPropertyName = "IsCorrect";
+            colIsCorrect.FalseValue = "false";
+            colIsCorrect.HeaderText = "Правильность";
+            colIsCorrect.Name = "colIsCorrect";
+            colIsCorrect.TrueValue = "true";
+            // 
+            // colStatus
+            // 
+            colStatus.DataPropertyName = "Status";
+            colStatus.DataSource = spStatusBindingSource;
+            colStatus.DisplayMember = "Name";
+            colStatus.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            colStatus.HeaderText = "Статус";
+            colStatus.Name = "colStatus";
+            colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            colStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            colStatus.ValueMember = "Id";
+            // 
+            // createUserDataGridViewTextBoxColumn
+            // 
+            createUserDataGridViewTextBoxColumn.DataPropertyName = "CreateUser";
+            createUserDataGridViewTextBoxColumn.HeaderText = "CreateUser";
+            createUserDataGridViewTextBoxColumn.Name = "createUserDataGridViewTextBoxColumn";
+            createUserDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // createDateDataGridViewTextBoxColumn
+            // 
+            createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDate";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            createDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            createDateDataGridViewTextBoxColumn.HeaderText = "Дата создания";
+            createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
+            createDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // updateUserDataGridViewTextBoxColumn
+            // 
+            updateUserDataGridViewTextBoxColumn.DataPropertyName = "UpdateUser";
+            updateUserDataGridViewTextBoxColumn.HeaderText = "UpdateUser";
+            updateUserDataGridViewTextBoxColumn.Name = "updateUserDataGridViewTextBoxColumn";
+            updateUserDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // updateDateDataGridViewTextBoxColumn
+            // 
+            updateDateDataGridViewTextBoxColumn.DataPropertyName = "UpdateDate";
+            updateDateDataGridViewTextBoxColumn.HeaderText = "UpdateDate";
+            updateDateDataGridViewTextBoxColumn.Name = "updateDateDataGridViewTextBoxColumn";
+            updateDateDataGridViewTextBoxColumn.Visible = false;
+            // 
             // FrmQuestion
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -328,10 +320,12 @@
         private System.Windows.Forms.BindingSource tbQuestionBindingSource;
         private System.Windows.Forms.BindingSource spStatusBindingSource;        
         private System.Windows.Forms.BindingSource spDrugBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.ComboBox StatusComboBox;
+        private System.Windows.Forms.Button BackBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOptionId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAnswer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn questionIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn questionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQuestionId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVariant;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsCorrect;
         private System.Windows.Forms.DataGridViewComboBoxColumn colStatus;
@@ -339,8 +333,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label StatusLabel;
-        private System.Windows.Forms.ComboBox StatusComboBox;
-        private System.Windows.Forms.Button BackBtn;
     }
 }

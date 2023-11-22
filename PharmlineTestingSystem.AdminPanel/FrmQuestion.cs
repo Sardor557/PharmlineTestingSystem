@@ -2,15 +2,8 @@
 using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
-using PharmlineTestingSystem.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel
@@ -29,14 +22,14 @@ namespace PharmlineTestingSystem.AdminPanel
 
         private async void FrmQuestion_Load(object sender, EventArgs e)
         {
-            this.OptionsGridView.DataSource = Question.Options;
             var drugs = await DicoService.GetDrugsAsync(1);
             var statuses = await DicoService.GetStatusesAsync();
             this.colStatus.DataSource = statuses.Data;
             this.DrugComboBox.DataSource = drugs.Data;
             this.StatusComboBox.DataSource = statuses.Data;
             this.IsOpencheckBox.Text = "Открытый";
-            GridRowStyle.SetRowsStyle(this.OptionsGridView.Rows, 4);
+            this.OptionsGridView.DataSource = Question.Options;
+            GridRowStyle.SetRowsStyle(this.OptionsGridView.Rows, 5);
         }
 
         private void BackBtn_Click(object sender, EventArgs e) => this.Close();
@@ -49,13 +42,20 @@ namespace PharmlineTestingSystem.AdminPanel
             Question.Status = this.StatusComboBox.SelectedValue.ToInt();
 
             Question.Options = new List<tbOption>();
-            for (int i = 0; i < OptionsGridView.Rows.Count - 1; i++)
+            for (int i = 0; i < OptionsGridView.Rows.Count; i++)
             {
-                DataGridViewRow row = (DataGridViewRow)OptionsGridView.Rows[i];
+                DataGridViewRow row = OptionsGridView.Rows[i];
+                if (row.IsNewRow) continue;
+
                 var option = new tbOption();
+
+                var optionId = row.Cells["colOptionId"].Value;
+                option.Id = optionId != null ? optionId.ToInt() : 0;
+
                 option.Answer = row.Cells["colAnswer"].Value.ToString();
                 option.Status = row.Cells["colStatus"].Value.ToInt();
                 option.Variant = row.Cells["colVariant"].Value.ToString();
+                option.QuestionId = row.Cells["colQuestionId"].Value.ToInt();
 
                 var isCorrect = row.Cells["colIsCorrect"].Value;
                 option.IsCorrect = isCorrect != null && Convert.ToBoolean(isCorrect);

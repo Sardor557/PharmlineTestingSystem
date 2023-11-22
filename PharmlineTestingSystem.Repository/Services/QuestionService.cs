@@ -55,7 +55,7 @@ namespace PharmlineTestingSystem.Repository.Services
                 logger.LogError("QuestionService.GetQuestionOptionsAsync error:{0}", ex.GetAllMessages());
                 return new Answer<tbOption[]>(false, "Ошибка");
             }
-        }        
+        }
 
         public async ValueTask<Answer<int>> AddQuestionAsync(tbQuestion question)
         {
@@ -75,8 +75,11 @@ namespace PharmlineTestingSystem.Repository.Services
                 await db.tbQuestions.AddAsync(question);
                 await db.SaveChangesAsync();
 
-                options = options.Select(x => { x.QuestionId = question.Id; x.CreateDate = DateTime.Now;
-                    x.CreateUser = userId; return x; }).ToList();
+                options = options.Select(x =>
+                {
+                    x.QuestionId = question.Id; x.CreateDate = DateTime.Now;
+                    x.CreateUser = userId; return x;
+                }).ToList();
 
                 await db.tbOptions.AddRangeAsync(options);
                 await db.SaveChangesAsync();
@@ -126,7 +129,7 @@ namespace PharmlineTestingSystem.Repository.Services
                         existOption.Answer = option.Answer;
                         existOption.QuestionId = model.Id;
                         existOption.Variant = option.Variant;
-                        
+
                         await db.tbOptions.AddAsync(existOption);
                         continue;
                     }
@@ -138,9 +141,9 @@ namespace PharmlineTestingSystem.Repository.Services
                     existOption.QuestionId = option.QuestionId;
                     existOption.Variant = option.Variant;
 
-                    await db.SaveChangesAsync();
                 }
 
+                await db.SaveChangesAsync();
                 await tran.CommitAsync();
 
                 return new AnswerBasic(true, "");
