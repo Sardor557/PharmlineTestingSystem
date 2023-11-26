@@ -60,6 +60,8 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             if (sender is not DataGridView gv) return;
 
+            if (gv.SelectedRows.Count < 1) return;
+            
             var row = gv.SelectedRows[0];
             if (row is null) return;
 

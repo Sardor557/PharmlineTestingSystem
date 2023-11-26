@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
@@ -19,22 +20,28 @@ namespace PharmlineTestingSystem.AdminPanel
             graphics.FillRectangle(b, gradient_rectangle);
         }
 
-        private void QuestionsBtn_Click(object sender, System.EventArgs e)
+        private void QuestionsBtn_Click(object sender, EventArgs e)
         {
             var frmQuestion = new FrmQuestionsList();
             frmQuestion.ShowDialog();
         }
 
-        private void EmployeeBtn_Click(object sender, System.EventArgs e)
+        private void EmployeeBtn_Click(object sender, EventArgs e)
         {
             var frmEmployeeList = new FrmEmployeeList();
             frmEmployeeList.ShowDialog();
         }
 
-        private void DrugsBtn_Click(object sender, System.EventArgs e)
+        private void DrugsBtn_Click(object sender, EventArgs e)
         {
             var frmDrugList = new FrmDrugList();
             frmDrugList.ShowDialog();
+        }
+
+        private void AnswersBtn_Click(object sender, EventArgs e)
+        {
+            var frmAnswers = new FrmAnswers();
+            frmAnswers.ShowDialog();
         }
     }
 }

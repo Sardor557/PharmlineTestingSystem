@@ -43,6 +43,7 @@ namespace PharmlineTestingSystem.Repository.Services
                                new Claim(ClaimTypes.Sid, res.Id.ToString()),
                                new Claim(ClaimTypes.Name, $"{res.FIO}"),
                                new Claim(ClaimTypes.NameIdentifier, res.Login.ToString()),
+                               new Claim(ClaimTypes.Role, "admin"),
                            }),
                 Expires = DateTime.Now.AddDays(365),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

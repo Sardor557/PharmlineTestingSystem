@@ -4,6 +4,7 @@ using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel
@@ -59,14 +60,22 @@ namespace PharmlineTestingSystem.AdminPanel
             {
                 if (row.IsNewRow) continue;
 
+                var answer = row.Cells["colAnswer"].Value;
+                var status = row.Cells["colStatus"].Value;
+                var variant = row.Cells["colVariant"].Value;
+
+                var arr = new object[3] { answer, status, variant };
+
+                if (arr.Any(x => x is null)) continue;
+
                 var option = new tbOption();
 
                 var optionId = row.Cells["colOptionId"].Value;
                 option.Id = optionId != null ? optionId.ToInt() : 0;
 
-                option.Answer = row.Cells["colAnswer"].Value.ToString();
-                option.Status = row.Cells["colStatus"].Value.ToInt();
-                option.Variant = row.Cells["colVariant"].Value.ToString();
+                option.Answer = answer.ToString();
+                option.Status = status.ToInt();
+                option.Variant = variant.ToString();
                 option.QuestionId = row.Cells["colQuestionId"].Value.ToInt();
 
                 var isCorrect = row.Cells["colIsCorrect"].Value;

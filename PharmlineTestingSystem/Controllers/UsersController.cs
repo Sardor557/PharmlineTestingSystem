@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PharmlineTestingSystem.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     [ApiVersion("1.0")]
     [Route("[controller]")]
     public class UsersController : ControllerBase
@@ -36,7 +36,6 @@ namespace PharmlineTestingSystem.Controllers
             return await rpUser.AuthenticateAsync(model, remoteIpAddress);
         }
 
-
         [HttpPost("register")]
         public async Task<Answer<viUser>> UserRegisterAsync([FromBody] viUserRegister model)
         {
@@ -50,7 +49,6 @@ namespace PharmlineTestingSystem.Controllers
             return await rpUser.CreateUserAsync(model);
         }
 
-
         [HttpPost("update")]
         public async Task<AnswerBasic> Update([FromBody] viUser model)
         {
@@ -63,13 +61,11 @@ namespace PharmlineTestingSystem.Controllers
             return await rpUser.ChangePasswordAsync(model);
         }
 
-
         [HttpGet("get_users")]
         public Task<Answer<tbUser[]>> GetUsersAsync()
         {
             return rpUser.GetAllUsersAsync();
         }
-
 
         [HttpGet("get_user_by_id/{id}")]
         public Task<Answer<tbUser>> GetUserByIdAsync(int id)

@@ -12,6 +12,7 @@ namespace PharmlineTestingSystem.Repository
             services.AddScoped<IDicoService, DicoService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IQuestionService, QuestionService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
         }
     }
 }

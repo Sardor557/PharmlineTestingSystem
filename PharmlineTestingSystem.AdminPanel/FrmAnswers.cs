@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PharmlineTestingSystem.AdminPanel.Services;
+using System;
 using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel
 {
     public partial class FrmAnswers : Form
     {
+        private readonly AnswerPanelService AnswerService = new AnswerPanelService();
+
         public FrmAnswers()
         {
             InitializeComponent();
@@ -21,6 +17,12 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             this.Close();
             this.Dispose();
+        }
+
+        private async void FrmAnswers_Load(object sender, EventArgs e)
+        {
+            var answers = await AnswerService.GetAnswersAsync();
+            this.viAnswerBindingSource.DataSource = answers.Data;
         }
     }
 }

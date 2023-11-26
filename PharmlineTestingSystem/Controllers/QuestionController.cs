@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PharmlineTestingSystem.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     [ApiVersion("1.0")]
     [Route("[controller]")]
     [SwaggerTag("Вопросы")]

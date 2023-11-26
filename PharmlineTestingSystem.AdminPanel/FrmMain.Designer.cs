@@ -75,6 +75,7 @@
             AnswersBtn.Text = "Ответы";
             AnswersBtn.TextColor = System.Drawing.Color.White;
             AnswersBtn.UseVisualStyleBackColor = false;
+            AnswersBtn.Click += AnswersBtn_Click;
             // 
             // DrugsBtn
             // 
