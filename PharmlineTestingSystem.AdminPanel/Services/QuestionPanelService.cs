@@ -32,6 +32,11 @@ namespace PharmlineTestingSystem.AdminPanel.Services
             return await client.PostApiAsync<tbQuestion, AnswerBasic>(ServerUrl + "Question/edit", model, Vars.Token);
         }
 
+        public ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async ValueTask<Answer<tbOption[]>> GetQuestionOptionsAsync(int questionId)
         {
             var res = await client.GetApiAsync<Answer<tbOption[]>>(ServerUrl + $"Question/options/{questionId}", Vars.Token);

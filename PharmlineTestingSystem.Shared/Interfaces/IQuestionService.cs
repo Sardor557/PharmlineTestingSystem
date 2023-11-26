@@ -8,6 +8,7 @@ namespace PharmlineTestingSystem.Shared.Interfaces
     {
         ValueTask<Answer<int>> AddQuestionAsync(tbQuestion question);
         ValueTask<AnswerBasic> EditQuestionAsync(tbQuestion model);
+        ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId);
         ValueTask<Answer<tbOption[]>> GetQuestionOptionsAsync(int questionId);
         ValueTask<Answer<tbQuestion[]>> GetQuestionsAsync();
     }

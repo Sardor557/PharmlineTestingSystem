@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using PharmlineTestingSystem.Shared.Interfaces;
 using PharmlineTestingSystem.Shared.ViewModels;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace PharmlineTestingSystem.Controllers
@@ -23,6 +25,12 @@ namespace PharmlineTestingSystem.Controllers
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public ValueTask<Answer<string>> LoginEmployeeAsync(viEmployeeAuthorization authorization) => service.LoginEmployeeAsync(authorization);
+        public ValueTask<Answer<viEmployee>> LoginEmployeeAsync(viEmployeeAuthorization authorization) => service.LoginEmployeeAsync(authorization);
+                        
+        [HttpGet("{telegramId}")]
+        public ValueTask<Answer<bool>> IsEmployeeRegistered(long telegramId) => service.IsEmployeeRegistered(telegramId);
+
+        [HttpPost("update_language")]
+        public ValueTask<AnswerBasic> UpdateEmployeeLanguage(SetProperty<long, string> property) => service.UpdateEmployeeLanguage(property);
     }
 }

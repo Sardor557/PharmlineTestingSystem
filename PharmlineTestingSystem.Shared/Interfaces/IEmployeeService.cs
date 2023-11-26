@@ -5,6 +5,8 @@ namespace PharmlineTestingSystem.Shared.Interfaces
 {
     public interface IEmployeeService
     {
-        ValueTask<Answer<string>> LoginEmployeeAsync(viEmployeeAuthorization authorization);
+        ValueTask<Answer<bool>> IsEmployeeRegistered(long telegramId);
+        ValueTask<Answer<viEmployee>> LoginEmployeeAsync(viEmployeeAuthorization authorization);
+        ValueTask<AnswerBasic> UpdateEmployeeLanguage(SetProperty<long, string> property);
     }
 }

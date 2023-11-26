@@ -6,6 +6,7 @@ namespace PharmlineTestingSystem.Shared.Interfaces
 {
     public interface IAnswerService
     {
+        ValueTask<AnswerBasic> AddAnswerAsync(viAnswer model);
         ValueTask<Answer<viAnswer[]>> GetAnswersAsync();
         ValueTask<Answer<tbAnswer[]>> GetQuestionAnwersAsync(int questionId);
     }

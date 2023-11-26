@@ -23,6 +23,9 @@ namespace PharmlineTestingSystem.Models
         [StringLength(255)]
         public string Password { get; set; }
 
+        [StringLength(2), Required]
+        public string Language {  get; set; }
+
         public void Validate()
         {
             if (this is null) throw new Exception("Форма пустая");

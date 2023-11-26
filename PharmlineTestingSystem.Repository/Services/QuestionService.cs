@@ -154,5 +154,39 @@ namespace PharmlineTestingSystem.Repository.Services
                 return new AnswerBasic(false, "Ошибка");
             }
         }
+
+        public async ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId)
+        {
+            try
+            {
+                var question = await db.tbQuestions
+                    .AsNoTracking()
+                    .Include(x => x.Options)
+                    .Where(x => x.DrugId == drugId)
+                    .Select(x => new viQuestion
+                    {
+                        Id = x.Id,
+                        Context = x.Context + $"\n\n{string.Join("\n", x.Options.Select(o => $"{o.Variant}. {o.Answer}"))}",
+                        IsOpen = x.IsOpen,
+                        Options = x.Options.Select(y => new viOption
+                        {
+                            Id = y.Id,
+                            QuestionId = x.Id,
+                            Variant = y.Variant,
+                        }).ToList(),
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (question is null)
+                    return new Answer<viQuestion>(false, "Вопросы к данному препарату отсутвуют");
+
+                return new Answer<viQuestion>(true, "OK", question);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("QuestionService.GetQuestionByDrugIdAsync error:{0}", ex.GetAllMessages());
+                return new Answer<viQuestion>(false, "Ошибка");
+            }
+        }
     }
 }

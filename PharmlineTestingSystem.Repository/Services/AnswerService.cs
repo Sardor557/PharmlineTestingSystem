@@ -35,7 +35,7 @@ namespace PharmlineTestingSystem.Repository.Services
             }
             catch (Exception ex)
             {
-                logger.LogError("QuestionService.GetQuestionAnwersAsync error:{0}", ex.GetAllMessages());
+                logger.LogError("QuestionService.GetQuestionAnwersAsync error: {0}", ex.GetAllMessages());
                 return new Answer<tbAnswer[]>(false, "Ошибка");
             }
         }
@@ -70,9 +70,36 @@ namespace PharmlineTestingSystem.Repository.Services
             }
             catch (Exception ex)
             {
-                logger.LogError("QuestionService.GetQuestionAnwersAsync error:{0}", ex.GetAllMessages());
+                logger.LogError("QuestionService.GetQuestionAnwersAsync error: {0}", ex.GetAllMessages());
                 return new Answer<viAnswer[]>(false, "Ошибка");
 
+            }
+        }
+
+        public async ValueTask<AnswerBasic> AddAnswerAsync(viAnswer model)
+        {
+            var tran = await db.Database.BeginTransactionAsync();
+            try
+            {
+                var answer = new tbAnswer();
+                answer.EmployeeId = model.EmployeeId;
+                answer.OptionId = model.OptionId;
+                answer.QuestionId = model.QuestionId;
+                answer.Status = 1;
+                answer.CreateDate = DateTime.Now;
+                answer.CreateUser = 0;
+
+                await db.tbAnswers.AddAsync(answer);
+                await db.SaveChangesAsync();
+                await tran.CommitAsync();
+
+                return new AnswerBasic(true, "");
+            }
+            catch (Exception ex)
+            {
+                await tran.RollbackAsync();
+                logger.LogError("QuestionService.AddAnswerAsync error: {0} model: {1}", ex.GetAllMessages(), model.ToJson());
+                return new AnswerBasic(false, "Ошибка");
             }
         }
     }

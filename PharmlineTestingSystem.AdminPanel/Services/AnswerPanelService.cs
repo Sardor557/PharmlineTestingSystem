@@ -22,6 +22,11 @@ namespace PharmlineTestingSystem.AdminPanel.Services
             this.client = new CRestClient();
         }
 
+        public ValueTask<AnswerBasic> AddAnswerAsync(viAnswer model)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async ValueTask<Answer<viAnswer[]>> GetAnswersAsync()
         {
             var res = await client.GetApiAsync<Answer<viAnswer[]>>(ServerUrl + $"Answer", Vars.Token);
