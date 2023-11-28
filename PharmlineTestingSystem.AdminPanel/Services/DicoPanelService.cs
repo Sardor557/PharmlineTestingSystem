@@ -43,6 +43,11 @@ namespace PharmlineTestingSystem.AdminPanel.Services
             return await client.PostApiAsync<tbEmployee, AnswerBasic>(ServerUrl + "Dico/edit_employee", employee, Vars.Token);
         }
 
+        public ValueTask<Answer<int>> GetDrugIdByNameAsync(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public async ValueTask<Answer<spDrug[]>> GetDrugsAsync(int? status = null)
         {
             var res = await client.GetApiAsync<Answer<spDrug[]>>(ServerUrl + $"Dico/drugs", Vars.Token);

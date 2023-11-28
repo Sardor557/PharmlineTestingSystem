@@ -41,6 +41,13 @@ namespace PharmlineTestingSystem.Controllers
             return service.GetDrugsAsync(status);
         }
 
+        [Authorize(Roles ="admin,employee")]
+        [HttpGet("drug/{name}")]
+        public ValueTask<Answer<int>> GetDrugIdByNameAsync(string name)
+        {
+            return service.GetDrugIdByNameAsync(name);
+        }
+
         [Authorize(Roles = "admin")]
         [HttpGet("statuses")]
         public ValueTask<Answer<spStatus[]>> GetStatusesAsync()

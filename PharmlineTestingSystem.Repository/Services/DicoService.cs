@@ -30,11 +30,10 @@ namespace PharmlineTestingSystem.Repository.Services
             try
             {
                 var query = db.spDrugs
-                    .AsNoTracking()
-                    .OrderBy(x => x.Name);
-                    
+                    .AsNoTracking();
+
                 if (status.HasValue)
-                    query.Where(x => x.Status == status.Value);
+                    query = query.Where(x => x.Status == status.Value).OrderBy(x => x.Name);
 
                 var drugs = await query.ToArrayAsync();
 
@@ -44,6 +43,28 @@ namespace PharmlineTestingSystem.Repository.Services
             {
                 logger.LogError("DicoService.GetDrugsAsync error: {0}", ex.GetAllMessages());
                 return new Answer<spDrug[]>(false, "Ошибка");
+            }
+        }
+
+        public async ValueTask<Answer<int>> GetDrugIdByNameAsync(string name)
+        {
+            try
+            {
+                var drug = await db.spDrugs
+                    .AsNoTracking()
+                    .Where(x => x.Name == name)
+                    .Select(x => x.Id)
+                    .FirstOrDefaultAsync();
+
+                if (drug == 0)
+                    return new Answer<int>(false, "Такого препарата нет");
+
+                return new Answer<int>(true, "", drug);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("DicoService.GetDrugIdByNameAsync error: {0}", ex.GetAllMessages());
+                return new Answer<int>(false, "Ошибка");
             }
         }
 

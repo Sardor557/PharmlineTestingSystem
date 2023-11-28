@@ -32,7 +32,7 @@ namespace PharmlineTestingSystem.AdminPanel.Services
             return await client.PostApiAsync<tbQuestion, AnswerBasic>(ServerUrl + "Question/edit", model, Vars.Token);
         }
 
-        public ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId)
+        public ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId, int overId)
         {
             throw new System.NotImplementedException();
         }

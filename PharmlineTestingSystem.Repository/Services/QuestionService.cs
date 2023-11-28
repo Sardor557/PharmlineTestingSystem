@@ -155,14 +155,15 @@ namespace PharmlineTestingSystem.Repository.Services
             }
         }
 
-        public async ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId)
+        public async ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId, int overId)
         {
             try
             {
                 var question = await db.tbQuestions
                     .AsNoTracking()
                     .Include(x => x.Options)
-                    .Where(x => x.DrugId == drugId)
+                    .Where(x => x.DrugId == drugId && x.Id > overId)
+                    .OrderBy(x => x.Id)
                     .Select(x => new viQuestion
                     {
                         Id = x.Id,

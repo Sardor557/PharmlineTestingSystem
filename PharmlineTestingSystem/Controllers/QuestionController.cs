@@ -49,10 +49,10 @@ namespace PharmlineTestingSystem.Controllers
         }
 
         [Authorize(Roles = "admin,employee")]
-        [HttpGet("by_drug/{drugId}")]
-        public ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId)
+        [HttpGet("by_drug/{drugId}/{overId}")]
+        public ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId, int overId)
         {
-            return service.GetQuestionByDrugIdAsync(drugId);
+            return service.GetQuestionByDrugIdAsync(drugId, overId);
         }
     }
 }

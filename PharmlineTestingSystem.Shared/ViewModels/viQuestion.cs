@@ -6,7 +6,7 @@ namespace PharmlineTestingSystem.Shared.ViewModels
     {
         public int Id { get; set; }
         public string Context { get; set; }
-        public  bool IsOpen {  get; set; }
+        public bool IsOpen { get; set; }
         public List<viOption> Options { get; set; }
     }
 }
