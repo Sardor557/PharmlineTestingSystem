@@ -29,13 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
-            viAnswerBindingSource = new System.Windows.Forms.BindingSource(components);
-            panel1 = new System.Windows.Forms.Panel();
-            BackBtn = new RJControlls.RJButton();
-            HeaderPanel = new System.Windows.Forms.Panel();
-            AnswersLabel = new System.Windows.Forms.Label();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
+            answersAdvancedGridView = new Zuby.ADGV.AdvancedDataGridView();
             idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             questionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,98 +42,40 @@
             colDrug = new System.Windows.Forms.DataGridViewTextBoxColumn();
             drugIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colAnswerDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).BeginInit();
+            viAnswerBindingSource = new System.Windows.Forms.BindingSource(components);
+            panel1 = new System.Windows.Forms.Panel();
+            BackBtn = new RJControlls.RJButton();
+            HeaderPanel = new System.Windows.Forms.Panel();
+            AnswersLabel = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)answersAdvancedGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)viAnswerBindingSource).BeginInit();
             panel1.SuspendLayout();
             HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // advancedDataGridView1
+            // answersAdvancedGridView
             // 
-            advancedDataGridView1.AutoGenerateColumns = false;
-            advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            advancedDataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            advancedDataGridView1.BackgroundColor = System.Drawing.Color.White;
-            advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            advancedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, colQuestion, questionIdDataGridViewTextBoxColumn, employeeIdDataGridViewTextBoxColumn, colEmployeeName, colOptionContext, colVariant, optionIdDataGridViewTextBoxColumn, colIsCorrect, colDrug, drugIdDataGridViewTextBoxColumn, colAnswerDate });
-            advancedDataGridView1.DataSource = viAnswerBindingSource;
-            advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            advancedDataGridView1.FilterAndSortEnabled = true;
-            advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            advancedDataGridView1.Location = new System.Drawing.Point(0, 146);
-            advancedDataGridView1.Name = "advancedDataGridView1";
-            advancedDataGridView1.ReadOnly = true;
-            advancedDataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            advancedDataGridView1.Size = new System.Drawing.Size(862, 426);
-            advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
-            advancedDataGridView1.TabIndex = 0;
-            // 
-            // viAnswerBindingSource
-            // 
-            viAnswerBindingSource.DataSource = typeof(Shared.ViewModels.viAnswer);
-            // 
-            // panel1
-            // 
-            panel1.BackColor = System.Drawing.Color.White;
-            panel1.Controls.Add(BackBtn);
-            panel1.Controls.Add(HeaderPanel);
-            panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            panel1.Location = new System.Drawing.Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(862, 146);
-            panel1.TabIndex = 1;
-            // 
-            // BackBtn
-            // 
-            BackBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
-            BackBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            BackBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            BackBtn.BorderRadius = 10;
-            BackBtn.BorderSize = 0;
-            BackBtn.FlatAppearance.BorderSize = 0;
-            BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            BackBtn.ForeColor = System.Drawing.Color.White;
-            BackBtn.Location = new System.Drawing.Point(726, 83);
-            BackBtn.Name = "BackBtn";
-            BackBtn.Size = new System.Drawing.Size(124, 54);
-            BackBtn.TabIndex = 5;
-            BackBtn.Text = "⬅️ Назад";
-            BackBtn.TextColor = System.Drawing.Color.White;
-            BackBtn.UseVisualStyleBackColor = false;
-            BackBtn.Click += BackBtn_Click;
-            // 
-            // HeaderPanel
-            // 
-            HeaderPanel.BackColor = System.Drawing.Color.SlateBlue;
-            HeaderPanel.Controls.Add(AnswersLabel);
-            HeaderPanel.Controls.Add(pictureBox1);
-            HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            HeaderPanel.Location = new System.Drawing.Point(0, 0);
-            HeaderPanel.Name = "HeaderPanel";
-            HeaderPanel.Size = new System.Drawing.Size(862, 77);
-            HeaderPanel.TabIndex = 4;
-            // 
-            // AnswersLabel
-            // 
-            AnswersLabel.AutoSize = true;
-            AnswersLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            AnswersLabel.Location = new System.Drawing.Point(247, 24);
-            AnswersLabel.Name = "AnswersLabel";
-            AnswersLabel.Size = new System.Drawing.Size(104, 28);
-            AnswersLabel.TabIndex = 1;
-            AnswersLabel.Text = "Ответы";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.logo2;
-            pictureBox1.Location = new System.Drawing.Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(219, 50);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            answersAdvancedGridView.AutoGenerateColumns = false;
+            answersAdvancedGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            answersAdvancedGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            answersAdvancedGridView.BackgroundColor = System.Drawing.Color.White;
+            answersAdvancedGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            answersAdvancedGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, colQuestion, questionIdDataGridViewTextBoxColumn, employeeIdDataGridViewTextBoxColumn, colEmployeeName, colOptionContext, colVariant, optionIdDataGridViewTextBoxColumn, colIsCorrect, colDrug, drugIdDataGridViewTextBoxColumn, colAnswerDate });
+            answersAdvancedGridView.DataSource = viAnswerBindingSource;
+            answersAdvancedGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            answersAdvancedGridView.FilterAndSortEnabled = true;
+            answersAdvancedGridView.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
+            answersAdvancedGridView.Location = new System.Drawing.Point(0, 146);
+            answersAdvancedGridView.Name = "answersAdvancedGridView";
+            answersAdvancedGridView.ReadOnly = true;
+            answersAdvancedGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            answersAdvancedGridView.Size = new System.Drawing.Size(862, 426);
+            answersAdvancedGridView.SortStringChangedInvokeBeforeDatasourceUpdate = true;
+            answersAdvancedGridView.TabIndex = 0;
+            answersAdvancedGridView.SortStringChanged += advancedDataGridView1_SortStringChanged;
+            answersAdvancedGridView.FilterStringChanged += advancedDataGridView1_FilterStringChanged;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -253,17 +189,84 @@
             colAnswerDate.ReadOnly = true;
             colAnswerDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
+            // viAnswerBindingSource
+            // 
+            viAnswerBindingSource.DataSource = typeof(Shared.ViewModels.viAnswer);
+            viAnswerBindingSource.ListChanged += viAnswerBindingSource_ListChanged;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = System.Drawing.Color.White;
+            panel1.Controls.Add(BackBtn);
+            panel1.Controls.Add(HeaderPanel);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(862, 146);
+            panel1.TabIndex = 1;
+            // 
+            // BackBtn
+            // 
+            BackBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            BackBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            BackBtn.BorderRadius = 10;
+            BackBtn.BorderSize = 0;
+            BackBtn.FlatAppearance.BorderSize = 0;
+            BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            BackBtn.ForeColor = System.Drawing.Color.White;
+            BackBtn.Location = new System.Drawing.Point(726, 83);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new System.Drawing.Size(124, 54);
+            BackBtn.TabIndex = 5;
+            BackBtn.Text = "⬅️ Назад";
+            BackBtn.TextColor = System.Drawing.Color.White;
+            BackBtn.UseVisualStyleBackColor = false;
+            BackBtn.Click += BackBtn_Click;
+            // 
+            // HeaderPanel
+            // 
+            HeaderPanel.BackColor = System.Drawing.Color.SlateBlue;
+            HeaderPanel.Controls.Add(AnswersLabel);
+            HeaderPanel.Controls.Add(pictureBox1);
+            HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            HeaderPanel.Location = new System.Drawing.Point(0, 0);
+            HeaderPanel.Name = "HeaderPanel";
+            HeaderPanel.Size = new System.Drawing.Size(862, 77);
+            HeaderPanel.TabIndex = 4;
+            // 
+            // AnswersLabel
+            // 
+            AnswersLabel.AutoSize = true;
+            AnswersLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            AnswersLabel.Location = new System.Drawing.Point(247, 24);
+            AnswersLabel.Name = "AnswersLabel";
+            AnswersLabel.Size = new System.Drawing.Size(104, 28);
+            AnswersLabel.TabIndex = 1;
+            AnswersLabel.Text = "Ответы";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo2;
+            pictureBox1.Location = new System.Drawing.Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(219, 50);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
             // FrmAnswers
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(862, 572);
-            Controls.Add(advancedDataGridView1);
+            Controls.Add(answersAdvancedGridView);
             Controls.Add(panel1);
             Name = "FrmAnswers";
             Text = "FrmAnswers";
             Load += FrmAnswers_Load;
-            ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)answersAdvancedGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)viAnswerBindingSource).EndInit();
             panel1.ResumeLayout(false);
             HeaderPanel.ResumeLayout(false);
@@ -274,7 +277,7 @@
 
         #endregion
 
-        private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
+        private Zuby.ADGV.AdvancedDataGridView answersAdvancedGridView;
         private System.Windows.Forms.Panel panel1;
         private RJControlls.RJButton BackBtn;
         private System.Windows.Forms.Panel HeaderPanel;
