@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using PharmlineTestingSystem.Shared.Interfaces;
 using PharmlineTestingSystem.Shared.ViewModels;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace PharmlineTestingSystem.Controllers
