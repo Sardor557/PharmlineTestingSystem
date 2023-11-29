@@ -61,5 +61,12 @@ namespace PharmlineTestingSystem.Controllers
         {
             return service.GetCurrentQuestionAsync(questionId);
         }
+
+        [Authorize(Roles = "admin")]
+        [HttpGet("property/{drugId}")]
+        public ValueTask<Answer<SetProperty<int, string>[]>> GetQuestionPropertyByDrugIdAsync(int drugId)
+        {
+            return service.GetQuestionPropertyByDrugIdAsync(drugId);
+        }
     }
 }

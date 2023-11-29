@@ -42,5 +42,13 @@ namespace PharmlineTestingSystem.AdminPanel.Services
                 MessageBox.Show(res.Message);
             return res;
         }
+
+        public async ValueTask<Answer<viAnswer[]>> SearchAnswerAsync(SearchAnswer search)
+        {
+            var res = await client.PostApiAsync<SearchAnswer, Answer<viAnswer[]>>(ServerUrl + "Answer/search", search, Vars.Token);
+            if (!res.IsSuccess)
+                MessageBox.Show(res.Message);
+            return res;
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace PharmlineTestingSystem.Repository.Services
     public sealed class AnswerService : IAnswerService
     {
         private readonly MyDbContext db;
-        private readonly ILogger<AnswerService> logger;        
+        private readonly ILogger<AnswerService> logger;
 
         public AnswerService(MyDbContext db, ILogger<AnswerService> logger)
         {
@@ -101,6 +101,50 @@ namespace PharmlineTestingSystem.Repository.Services
                 await tran.RollbackAsync();
                 logger.LogError("QuestionService.AddAnswerAsync error: {0} model: {1}", ex.GetAllMessages(), model.ToJson());
                 return new AnswerBasic(false, "Ошибка");
+            }
+        }
+
+        public async ValueTask<Answer<viAnswer[]>> SearchAnswerAsync(SearchAnswer search)
+        {
+            try
+            {
+                var s = db.tbAnswers
+                    .Include(x => x.Employee)
+                    .Include(x => x.Question).ThenInclude(x => x.Drug)
+                    .Include(x => x.Option)
+                    .AsNoTracking();
+
+                if (search.DrugId.HasValue)
+                    s = s.Where(x => x.Question.DrugId == search.DrugId);
+
+                if (search.EmployeeId.HasValue)
+                    s = s.Where(x => x.EmployeeId == search.EmployeeId);
+
+                if (search.QuestionId.HasValue)
+                    s = s.Where(x => x.QuestionId == search.QuestionId);
+
+                var answer = await s.Select(x => new viAnswer
+                {
+                    Id = x.Id,
+                    AnswerDate = x.CreateDate,
+                    DrugId = x.Question.DrugId,
+                    Drug = x.Question.Drug.Name,
+                    EmployeeId = x.EmployeeId,
+                    EmployeeName = x.Employee.FullName,
+                    OptionId = x.OptionId,
+                    OptionContext = x.Option.Answer,
+                    Variant = x.Option.Variant,
+                    IsCorrect = x.Option.IsCorrect,
+                    QuestionId = x.QuestionId,
+                    Question = x.Question.Context
+                }).ToArrayAsync();
+
+                return new Answer<viAnswer[]>(true, "", answer);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("QuestionService.SearchAnswerAsync error: {0}", ex.GetAllMessages());
+                return new Answer<viAnswer[]>(false, "Ошибка");
             }
         }
     }

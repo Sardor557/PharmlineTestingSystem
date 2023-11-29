@@ -221,5 +221,28 @@ namespace PharmlineTestingSystem.Repository.Services
                 return new Answer<viQuestion>(false, "Ошибка");
             }
         }
+
+        public async ValueTask<Answer<SetProperty<int, string>[]>> GetQuestionPropertyByDrugIdAsync(int drugId)
+        {
+            try
+            {
+                var question = await db.tbQuestions
+                    .AsNoTracking()
+                    .Where(x => x.DrugId == drugId)
+                    .Select(x => new SetProperty<int, string>
+                    {
+                        Id = x.Id,
+                        Value = x.Context
+                    })
+                    .ToArrayAsync();
+
+                return new Answer<SetProperty<int, string>[]>(true, "", question);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("QuestionService.GetQuestionPropertyByDrugIdAsync error:{0}", ex.GetAllMessages());
+                return new Answer<SetProperty<int, string>[]>(false, "Ошибка");
+            }
+        }
     }
 }

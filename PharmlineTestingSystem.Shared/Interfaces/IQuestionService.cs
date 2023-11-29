@@ -11,6 +11,7 @@ namespace PharmlineTestingSystem.Shared.Interfaces
         ValueTask<Answer<viQuestion>> GetCurrentQuestionAsync(int questionId);
         ValueTask<Answer<viQuestion>> GetQuestionByDrugIdAsync(int drugId, int overId);
         ValueTask<Answer<tbOption[]>> GetQuestionOptionsAsync(int questionId);
+        ValueTask<Answer<SetProperty<int, string>[]>> GetQuestionPropertyByDrugIdAsync(int drugId);
         ValueTask<Answer<tbQuestion[]>> GetQuestionsAsync();
     }
 }

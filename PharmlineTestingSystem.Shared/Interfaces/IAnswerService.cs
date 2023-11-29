@@ -9,5 +9,6 @@ namespace PharmlineTestingSystem.Shared.Interfaces
         ValueTask<AnswerBasic> AddAnswerAsync(viAnswer model);
         ValueTask<Answer<viAnswer[]>> GetAnswersAsync();
         ValueTask<Answer<tbAnswer[]>> GetQuestionAnwersAsync(int questionId);
+        ValueTask<Answer<viAnswer[]>> SearchAnswerAsync(SearchAnswer search);
     }
 }

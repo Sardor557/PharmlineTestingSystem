@@ -30,6 +30,7 @@ namespace PharmlineTestingSystem.Repository.Services
             try
             {
                 var query = db.spDrugs
+                    .OrderBy (x => x.Name)
                     .AsNoTracking();
 
                 if (status.HasValue)
@@ -188,7 +189,7 @@ namespace PharmlineTestingSystem.Repository.Services
             {
                 var emps = await db.tbEmployees
                     .AsNoTracking()
-                    .OrderBy(x => x.Id)
+                    .OrderBy(x => x.FullName)
                     .ToArrayAsync();
 
                 emps = emps.Select(x => { x.Password = null; return x; }).ToArray();

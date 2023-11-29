@@ -50,6 +50,14 @@ namespace PharmlineTestingSystem.AdminPanel.Services
             return res;
         }
 
+        public async ValueTask<Answer<SetProperty<int, string>[]>> GetQuestionPropertyByDrugIdAsync(int drugId)
+        {
+            var res = await client.GetApiAsync<Answer<SetProperty<int, string>[]>>(ServerUrl + $"Question/property/{drugId}", Vars.Token);
+            if (!res.IsSuccess)
+                MessageBox.Show(res.Message);
+            return res;
+        }
+
         public async ValueTask<Answer<tbQuestion[]>> GetQuestionsAsync()
         {
             var res = await client.GetApiAsync<Answer<tbQuestion[]>>(ServerUrl + $"Question", Vars.Token);

@@ -28,5 +28,9 @@ namespace PharmlineTestingSystem.Controllers
         [Authorize(Roles = "admin,employee")]
         [HttpPost("add")]
         public ValueTask<AnswerBasic> AddAnswerAsync(viAnswer model) => service.AddAnswerAsync(model);
+
+        [Authorize(Roles ="admin")]
+        [HttpPost("search")]
+        public ValueTask<Answer<viAnswer[]>> SearchAnswerAsync(SearchAnswer search) => service.SearchAnswerAsync(search);
     }
 }

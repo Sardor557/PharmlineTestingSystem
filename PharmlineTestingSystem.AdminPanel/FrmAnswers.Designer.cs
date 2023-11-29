@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            answersAdvancedGridView = new Zuby.ADGV.AdvancedDataGridView();
+            viAnswerBindingSource = new System.Windows.Forms.BindingSource(components);
+            panel1 = new System.Windows.Forms.Panel();
+            BackBtn = new RJControlls.RJButton();
+            HeaderPanel = new System.Windows.Forms.Panel();
+            AnswersLabel = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            AnswersGridView = new System.Windows.Forms.DataGridView();
             idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             questionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,157 +48,30 @@
             colDrug = new System.Windows.Forms.DataGridViewTextBoxColumn();
             drugIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colAnswerDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            viAnswerBindingSource = new System.Windows.Forms.BindingSource(components);
-            panel1 = new System.Windows.Forms.Panel();
-            BackBtn = new RJControlls.RJButton();
-            HeaderPanel = new System.Windows.Forms.Panel();
-            AnswersLabel = new System.Windows.Forms.Label();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)answersAdvancedGridView).BeginInit();
+            SearchPanel = new System.Windows.Forms.Panel();
+            QuestionComboBox = new System.Windows.Forms.ComboBox();
+            DrugComboBox = new System.Windows.Forms.ComboBox();
+            spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
+            EmployeeComboBox = new System.Windows.Forms.ComboBox();
+            tbEmployeeBindingSource = new System.Windows.Forms.BindingSource(components);
+            ResetBtn = new RJControlls.RJButton();
+            SearchBtn = new RJControlls.RJButton();
+            label3 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)viAnswerBindingSource).BeginInit();
             panel1.SuspendLayout();
             HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AnswersGridView).BeginInit();
+            SearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbEmployeeBindingSource).BeginInit();
             SuspendLayout();
-            // 
-            // answersAdvancedGridView
-            // 
-            answersAdvancedGridView.AutoGenerateColumns = false;
-            answersAdvancedGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            answersAdvancedGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            answersAdvancedGridView.BackgroundColor = System.Drawing.Color.White;
-            answersAdvancedGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            answersAdvancedGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, colQuestion, questionIdDataGridViewTextBoxColumn, employeeIdDataGridViewTextBoxColumn, colEmployeeName, colOptionContext, colVariant, optionIdDataGridViewTextBoxColumn, colIsCorrect, colDrug, drugIdDataGridViewTextBoxColumn, colAnswerDate });
-            answersAdvancedGridView.DataSource = viAnswerBindingSource;
-            answersAdvancedGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            answersAdvancedGridView.FilterAndSortEnabled = true;
-            answersAdvancedGridView.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            answersAdvancedGridView.Location = new System.Drawing.Point(0, 146);
-            answersAdvancedGridView.Name = "answersAdvancedGridView";
-            answersAdvancedGridView.ReadOnly = true;
-            answersAdvancedGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            answersAdvancedGridView.Size = new System.Drawing.Size(862, 426);
-            answersAdvancedGridView.SortStringChangedInvokeBeforeDatasourceUpdate = true;
-            answersAdvancedGridView.TabIndex = 0;
-            answersAdvancedGridView.SortStringChanged += advancedDataGridView1_SortStringChanged;
-            answersAdvancedGridView.FilterStringChanged += advancedDataGridView1_FilterStringChanged;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 22;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // colQuestion
-            // 
-            colQuestion.DataPropertyName = "Question";
-            colQuestion.HeaderText = "Вопрос";
-            colQuestion.MinimumWidth = 22;
-            colQuestion.Name = "colQuestion";
-            colQuestion.ReadOnly = true;
-            colQuestion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // questionIdDataGridViewTextBoxColumn
-            // 
-            questionIdDataGridViewTextBoxColumn.DataPropertyName = "QuestionId";
-            questionIdDataGridViewTextBoxColumn.HeaderText = "QuestionId";
-            questionIdDataGridViewTextBoxColumn.MinimumWidth = 22;
-            questionIdDataGridViewTextBoxColumn.Name = "questionIdDataGridViewTextBoxColumn";
-            questionIdDataGridViewTextBoxColumn.ReadOnly = true;
-            questionIdDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            questionIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // employeeIdDataGridViewTextBoxColumn
-            // 
-            employeeIdDataGridViewTextBoxColumn.DataPropertyName = "EmployeeId";
-            employeeIdDataGridViewTextBoxColumn.HeaderText = "EmployeeId";
-            employeeIdDataGridViewTextBoxColumn.MinimumWidth = 22;
-            employeeIdDataGridViewTextBoxColumn.Name = "employeeIdDataGridViewTextBoxColumn";
-            employeeIdDataGridViewTextBoxColumn.ReadOnly = true;
-            employeeIdDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            employeeIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // colEmployeeName
-            // 
-            colEmployeeName.DataPropertyName = "EmployeeName";
-            colEmployeeName.HeaderText = "Сотрудник";
-            colEmployeeName.MinimumWidth = 22;
-            colEmployeeName.Name = "colEmployeeName";
-            colEmployeeName.ReadOnly = true;
-            colEmployeeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // colOptionContext
-            // 
-            colOptionContext.DataPropertyName = "OptionContext";
-            colOptionContext.HeaderText = "Ответ";
-            colOptionContext.MinimumWidth = 22;
-            colOptionContext.Name = "colOptionContext";
-            colOptionContext.ReadOnly = true;
-            colOptionContext.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // colVariant
-            // 
-            colVariant.DataPropertyName = "Variant";
-            colVariant.HeaderText = "Вариант";
-            colVariant.MinimumWidth = 22;
-            colVariant.Name = "colVariant";
-            colVariant.ReadOnly = true;
-            colVariant.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // optionIdDataGridViewTextBoxColumn
-            // 
-            optionIdDataGridViewTextBoxColumn.DataPropertyName = "OptionId";
-            optionIdDataGridViewTextBoxColumn.HeaderText = "OptionId";
-            optionIdDataGridViewTextBoxColumn.MinimumWidth = 22;
-            optionIdDataGridViewTextBoxColumn.Name = "optionIdDataGridViewTextBoxColumn";
-            optionIdDataGridViewTextBoxColumn.ReadOnly = true;
-            optionIdDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            optionIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // colIsCorrect
-            // 
-            colIsCorrect.DataPropertyName = "IsCorrect";
-            colIsCorrect.HeaderText = "Правильность";
-            colIsCorrect.MinimumWidth = 22;
-            colIsCorrect.Name = "colIsCorrect";
-            colIsCorrect.ReadOnly = true;
-            colIsCorrect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // colDrug
-            // 
-            colDrug.DataPropertyName = "Drug";
-            colDrug.HeaderText = "Препарат";
-            colDrug.MinimumWidth = 22;
-            colDrug.Name = "colDrug";
-            colDrug.ReadOnly = true;
-            colDrug.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // drugIdDataGridViewTextBoxColumn
-            // 
-            drugIdDataGridViewTextBoxColumn.DataPropertyName = "DrugId";
-            drugIdDataGridViewTextBoxColumn.HeaderText = "DrugId";
-            drugIdDataGridViewTextBoxColumn.MinimumWidth = 22;
-            drugIdDataGridViewTextBoxColumn.Name = "drugIdDataGridViewTextBoxColumn";
-            drugIdDataGridViewTextBoxColumn.ReadOnly = true;
-            drugIdDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            drugIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // colAnswerDate
-            // 
-            colAnswerDate.DataPropertyName = "AnswerDate";
-            colAnswerDate.HeaderText = "Дата ответа";
-            colAnswerDate.MinimumWidth = 22;
-            colAnswerDate.Name = "colAnswerDate";
-            colAnswerDate.ReadOnly = true;
-            colAnswerDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // viAnswerBindingSource
             // 
             viAnswerBindingSource.DataSource = typeof(Shared.ViewModels.viAnswer);
-            viAnswerBindingSource.ListChanged += viAnswerBindingSource_ListChanged;
             // 
             // panel1
             // 
@@ -202,7 +81,7 @@
             panel1.Dock = System.Windows.Forms.DockStyle.Top;
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(862, 146);
+            panel1.Size = new System.Drawing.Size(1198, 146);
             panel1.TabIndex = 1;
             // 
             // BackBtn
@@ -216,7 +95,7 @@
             BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             BackBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
             BackBtn.ForeColor = System.Drawing.Color.White;
-            BackBtn.Location = new System.Drawing.Point(726, 83);
+            BackBtn.Location = new System.Drawing.Point(1062, 83);
             BackBtn.Name = "BackBtn";
             BackBtn.Size = new System.Drawing.Size(124, 54);
             BackBtn.TabIndex = 5;
@@ -233,7 +112,7 @@
             HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderPanel.Location = new System.Drawing.Point(0, 0);
             HeaderPanel.Name = "HeaderPanel";
-            HeaderPanel.Size = new System.Drawing.Size(862, 77);
+            HeaderPanel.Size = new System.Drawing.Size(1198, 77);
             HeaderPanel.TabIndex = 4;
             // 
             // AnswersLabel
@@ -256,28 +135,248 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // AnswersGridView
+            // 
+            AnswersGridView.AutoGenerateColumns = false;
+            AnswersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            AnswersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            AnswersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AnswersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, colQuestion, questionIdDataGridViewTextBoxColumn, employeeIdDataGridViewTextBoxColumn, colEmployeeName, colOptionContext, colVariant, optionIdDataGridViewTextBoxColumn, colIsCorrect, colDrug, drugIdDataGridViewTextBoxColumn, colAnswerDate });
+            AnswersGridView.DataSource = viAnswerBindingSource;
+            AnswersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            AnswersGridView.Location = new System.Drawing.Point(262, 146);
+            AnswersGridView.Name = "AnswersGridView";
+            AnswersGridView.Size = new System.Drawing.Size(936, 519);
+            AnswersGridView.TabIndex = 2;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // colQuestion
+            // 
+            colQuestion.DataPropertyName = "Question";
+            colQuestion.HeaderText = "Вопрос";
+            colQuestion.Name = "colQuestion";
+            // 
+            // questionIdDataGridViewTextBoxColumn
+            // 
+            questionIdDataGridViewTextBoxColumn.DataPropertyName = "QuestionId";
+            questionIdDataGridViewTextBoxColumn.HeaderText = "QuestionId";
+            questionIdDataGridViewTextBoxColumn.Name = "questionIdDataGridViewTextBoxColumn";
+            questionIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // employeeIdDataGridViewTextBoxColumn
+            // 
+            employeeIdDataGridViewTextBoxColumn.DataPropertyName = "EmployeeId";
+            employeeIdDataGridViewTextBoxColumn.HeaderText = "EmployeeId";
+            employeeIdDataGridViewTextBoxColumn.Name = "employeeIdDataGridViewTextBoxColumn";
+            employeeIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // colEmployeeName
+            // 
+            colEmployeeName.DataPropertyName = "EmployeeName";
+            colEmployeeName.HeaderText = "Сотрудник";
+            colEmployeeName.Name = "colEmployeeName";
+            // 
+            // colOptionContext
+            // 
+            colOptionContext.DataPropertyName = "OptionContext";
+            colOptionContext.HeaderText = "Ответ";
+            colOptionContext.Name = "colOptionContext";
+            // 
+            // colVariant
+            // 
+            colVariant.DataPropertyName = "Variant";
+            colVariant.HeaderText = "Вариант";
+            colVariant.Name = "colVariant";
+            // 
+            // optionIdDataGridViewTextBoxColumn
+            // 
+            optionIdDataGridViewTextBoxColumn.DataPropertyName = "OptionId";
+            optionIdDataGridViewTextBoxColumn.HeaderText = "OptionId";
+            optionIdDataGridViewTextBoxColumn.Name = "optionIdDataGridViewTextBoxColumn";
+            optionIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // colIsCorrect
+            // 
+            colIsCorrect.DataPropertyName = "IsCorrect";
+            colIsCorrect.HeaderText = "Правильность";
+            colIsCorrect.Name = "colIsCorrect";
+            // 
+            // colDrug
+            // 
+            colDrug.DataPropertyName = "Drug";
+            colDrug.HeaderText = "Препарат";
+            colDrug.Name = "colDrug";
+            // 
+            // drugIdDataGridViewTextBoxColumn
+            // 
+            drugIdDataGridViewTextBoxColumn.DataPropertyName = "DrugId";
+            drugIdDataGridViewTextBoxColumn.HeaderText = "DrugId";
+            drugIdDataGridViewTextBoxColumn.Name = "drugIdDataGridViewTextBoxColumn";
+            drugIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // colAnswerDate
+            // 
+            colAnswerDate.DataPropertyName = "AnswerDate";
+            colAnswerDate.HeaderText = "Дата ответа";
+            colAnswerDate.Name = "colAnswerDate";
+            // 
+            // SearchPanel
+            // 
+            SearchPanel.Controls.Add(QuestionComboBox);
+            SearchPanel.Controls.Add(DrugComboBox);
+            SearchPanel.Controls.Add(EmployeeComboBox);
+            SearchPanel.Controls.Add(ResetBtn);
+            SearchPanel.Controls.Add(SearchBtn);
+            SearchPanel.Controls.Add(label3);
+            SearchPanel.Controls.Add(label2);
+            SearchPanel.Controls.Add(label1);
+            SearchPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            SearchPanel.Location = new System.Drawing.Point(0, 146);
+            SearchPanel.Name = "SearchPanel";
+            SearchPanel.Size = new System.Drawing.Size(262, 519);
+            SearchPanel.TabIndex = 3;
+            // 
+            // QuestionComboBox
+            // 
+            QuestionComboBox.DisplayMember = "Value";
+            QuestionComboBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            QuestionComboBox.FormattingEnabled = true;
+            QuestionComboBox.Location = new System.Drawing.Point(60, 235);
+            QuestionComboBox.Name = "QuestionComboBox";
+            QuestionComboBox.Size = new System.Drawing.Size(140, 29);
+            QuestionComboBox.TabIndex = 10;
+            QuestionComboBox.ValueMember = "Id";
+            // 
+            // DrugComboBox
+            // 
+            DrugComboBox.DataSource = spDrugBindingSource;
+            DrugComboBox.DisplayMember = "Name";
+            DrugComboBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            DrugComboBox.FormattingEnabled = true;
+            DrugComboBox.Location = new System.Drawing.Point(60, 143);
+            DrugComboBox.Name = "DrugComboBox";
+            DrugComboBox.Size = new System.Drawing.Size(140, 29);
+            DrugComboBox.TabIndex = 9;
+            DrugComboBox.ValueMember = "Id";
+            DrugComboBox.SelectedIndexChanged += DrugComboBox_SelectedIndexChanged;
+            // 
+            // spDrugBindingSource
+            // 
+            spDrugBindingSource.DataSource = typeof(Models.spDrug);
+            // 
+            // EmployeeComboBox
+            // 
+            EmployeeComboBox.DataSource = tbEmployeeBindingSource;
+            EmployeeComboBox.DisplayMember = "FullName";
+            EmployeeComboBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            EmployeeComboBox.FormattingEnabled = true;
+            EmployeeComboBox.Location = new System.Drawing.Point(60, 49);
+            EmployeeComboBox.Name = "EmployeeComboBox";
+            EmployeeComboBox.Size = new System.Drawing.Size(140, 29);
+            EmployeeComboBox.TabIndex = 8;
+            EmployeeComboBox.ValueMember = "Id";
+            // 
+            // tbEmployeeBindingSource
+            // 
+            tbEmployeeBindingSource.DataSource = typeof(Models.tbEmployee);
+            // 
+            // ResetBtn
+            // 
+            ResetBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
+            ResetBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            ResetBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            ResetBtn.BorderRadius = 10;
+            ResetBtn.BorderSize = 0;
+            ResetBtn.FlatAppearance.BorderSize = 0;
+            ResetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            ResetBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            ResetBtn.ForeColor = System.Drawing.Color.White;
+            ResetBtn.Location = new System.Drawing.Point(129, 309);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new System.Drawing.Size(93, 41);
+            ResetBtn.TabIndex = 7;
+            ResetBtn.Text = "Сброс";
+            ResetBtn.TextColor = System.Drawing.Color.White;
+            ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
+            // 
+            // SearchBtn
+            // 
+            SearchBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
+            SearchBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            SearchBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            SearchBtn.BorderRadius = 10;
+            SearchBtn.BorderSize = 0;
+            SearchBtn.FlatAppearance.BorderSize = 0;
+            SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            SearchBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            SearchBtn.ForeColor = System.Drawing.Color.White;
+            SearchBtn.Location = new System.Drawing.Point(30, 309);
+            SearchBtn.Name = "SearchBtn";
+            SearchBtn.Size = new System.Drawing.Size(93, 41);
+            SearchBtn.TabIndex = 6;
+            SearchBtn.Text = "Поиск";
+            SearchBtn.TextColor = System.Drawing.Color.White;
+            SearchBtn.UseVisualStyleBackColor = false;
+            SearchBtn.Click += SearchBtn_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(108, 217);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(48, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Вопрос";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(102, 125);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(60, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Препарат";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(102, 31);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(66, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Сотрудник";
+            // 
             // FrmAnswers
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(862, 572);
-            Controls.Add(answersAdvancedGridView);
+            ClientSize = new System.Drawing.Size(1198, 665);
+            Controls.Add(AnswersGridView);
+            Controls.Add(SearchPanel);
             Controls.Add(panel1);
             Name = "FrmAnswers";
             Text = "FrmAnswers";
             Load += FrmAnswers_Load;
-            ((System.ComponentModel.ISupportInitialize)answersAdvancedGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)viAnswerBindingSource).EndInit();
             panel1.ResumeLayout(false);
             HeaderPanel.ResumeLayout(false);
             HeaderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AnswersGridView).EndInit();
+            SearchPanel.ResumeLayout(false);
+            SearchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbEmployeeBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Zuby.ADGV.AdvancedDataGridView answersAdvancedGridView;
         private System.Windows.Forms.Panel panel1;
         private RJControlls.RJButton BackBtn;
         private System.Windows.Forms.Panel HeaderPanel;
@@ -285,17 +384,29 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOption;
         private System.Windows.Forms.BindingSource viAnswerBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOptionContext;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVariant;
+        private System.Windows.Forms.DataGridView AnswersGridView;
+        private System.Windows.Forms.Panel SearchPanel;
+        private RJControlls.RJButton ResetBtn;
+        private RJControlls.RJButton SearchBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox QuestionComboBox;
+        private System.Windows.Forms.ComboBox DrugComboBox;
+        private System.Windows.Forms.ComboBox EmployeeComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colQuestion;
         private System.Windows.Forms.DataGridViewTextBoxColumn questionIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmployeeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOptionContext;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVariant;
         private System.Windows.Forms.DataGridViewTextBoxColumn optionIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsCorrect;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDrug;
         private System.Windows.Forms.DataGridViewTextBoxColumn drugIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAnswerDate;
+        private System.Windows.Forms.BindingSource tbEmployeeBindingSource;
+        private System.Windows.Forms.BindingSource spDrugBindingSource;
     }
 }
