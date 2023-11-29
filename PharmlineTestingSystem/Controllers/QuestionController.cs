@@ -54,5 +54,12 @@ namespace PharmlineTestingSystem.Controllers
         {
             return service.GetQuestionByDrugIdAsync(drugId, overId);
         }
+
+        [Authorize(Roles = "admin,employee")]
+        [HttpGet("current/{questionId}")]
+        public ValueTask<Answer<viQuestion>> GetCurrentQuestionAsync(int questionId)
+        {
+            return service.GetCurrentQuestionAsync(questionId);
+        }
     }
 }

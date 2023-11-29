@@ -58,7 +58,8 @@ namespace PharmlineTestingSystem.Repository.Services
                         EmployeeId = x.EmployeeId,
                         EmployeeName = x.Employee.FullName,
                         OptionId = x.OptionId,
-                        Option = x.Option.Answer,
+                        OptionContext = x.Option.Answer,
+                        Variant = x.Option.Variant,
                         IsCorrect = x.Option.IsCorrect,
                         QuestionId = x.QuestionId,
                         Question = x.Question.Context

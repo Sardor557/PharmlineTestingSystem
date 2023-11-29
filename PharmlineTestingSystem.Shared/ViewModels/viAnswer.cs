@@ -11,7 +11,8 @@ namespace PharmlineTestingSystem.Shared.ViewModels
         public int EmployeeId { get; set; }
         public string EmployeeName {  get; set; }
                 
-        public string Option {  get; set; }
+        public string OptionContext {  get; set; }
+        public string Variant { get; set; }
         public int OptionId { get; set; }
         public bool IsCorrect { get; set; }
 
