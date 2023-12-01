@@ -361,7 +361,7 @@
             Controls.Add(SearchPanel);
             Controls.Add(panel1);
             Name = "FrmAnswers";
-            Text = "FrmAnswers";
+            Text = "Ответы";
             Load += FrmAnswers_Load;
             ((System.ComponentModel.ISupportInitialize)viAnswerBindingSource).EndInit();
             panel1.ResumeLayout(false);

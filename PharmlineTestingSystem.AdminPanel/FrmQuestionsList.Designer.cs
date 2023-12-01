@@ -37,20 +37,19 @@
             EditQuestionBtn = new RJControlls.RJButton();
             AddQuestionBtn = new RJControlls.RJButton();
             QuestionsGridView = new System.Windows.Forms.DataGridView();
-            spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
-            tbQuestionBindingSource = new System.Windows.Forms.BindingSource(components);
-            splitter1 = new System.Windows.Forms.Splitter();
-            OptionsGridView = new System.Windows.Forms.DataGridView();
-            tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
             colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colContext = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colDrugId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            spDrugBindingSource = new System.Windows.Forms.BindingSource(components);
             colIsOpen = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             createUserDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tbQuestionBindingSource = new System.Windows.Forms.BindingSource(components);
+            splitter1 = new System.Windows.Forms.Splitter();
+            OptionsGridView = new System.Windows.Forms.DataGridView();
             colOptionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colQuestionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +60,7 @@
             colOptionCreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
             HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel.SuspendLayout();
@@ -193,46 +193,6 @@
             QuestionsGridView.TabIndex = 2;
             QuestionsGridView.SelectionChanged += QuestionsGridView_SelectionChanged;
             // 
-            // spDrugBindingSource
-            // 
-            spDrugBindingSource.DataSource = typeof(Models.spDrug);
-            // 
-            // tbQuestionBindingSource
-            // 
-            tbQuestionBindingSource.DataSource = typeof(Models.tbQuestion);
-            // 
-            // splitter1
-            // 
-            splitter1.BackColor = System.Drawing.Color.Red;
-            splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            splitter1.Dock = System.Windows.Forms.DockStyle.Top;
-            splitter1.Location = new System.Drawing.Point(0, 476);
-            splitter1.Name = "splitter1";
-            splitter1.Size = new System.Drawing.Size(547, 3);
-            splitter1.TabIndex = 3;
-            splitter1.TabStop = false;
-            // 
-            // OptionsGridView
-            // 
-            OptionsGridView.AutoGenerateColumns = false;
-            OptionsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            OptionsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            OptionsGridView.BackgroundColor = System.Drawing.Color.White;
-            OptionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            OptionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colOptionId, colAnswer, colQuestionId, colVariant, colIsCorrect, colOptionStatus, createUserDataGridViewTextBoxColumn, colOptionCreateDate, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
-            OptionsGridView.DataSource = tbOptionBindingSource;
-            OptionsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            OptionsGridView.Location = new System.Drawing.Point(0, 479);
-            OptionsGridView.Name = "OptionsGridView";
-            OptionsGridView.ReadOnly = true;
-            OptionsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            OptionsGridView.Size = new System.Drawing.Size(547, 279);
-            OptionsGridView.TabIndex = 4;
-            // 
-            // tbOptionBindingSource
-            // 
-            tbOptionBindingSource.DataSource = typeof(Models.tbOption);
-            // 
             // colId
             // 
             colId.DataPropertyName = "Id";
@@ -260,6 +220,10 @@
             colDrugId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             colDrugId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             colDrugId.ValueMember = "Id";
+            // 
+            // spDrugBindingSource
+            // 
+            spDrugBindingSource.DataSource = typeof(Models.spDrug);
             // 
             // colIsOpen
             // 
@@ -306,6 +270,38 @@
             updateDateDataGridViewTextBoxColumn1.Name = "updateDateDataGridViewTextBoxColumn1";
             updateDateDataGridViewTextBoxColumn1.ReadOnly = true;
             updateDateDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // tbQuestionBindingSource
+            // 
+            tbQuestionBindingSource.DataSource = typeof(Models.tbQuestion);
+            // 
+            // splitter1
+            // 
+            splitter1.BackColor = System.Drawing.Color.Red;
+            splitter1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            splitter1.Dock = System.Windows.Forms.DockStyle.Top;
+            splitter1.Location = new System.Drawing.Point(0, 476);
+            splitter1.Name = "splitter1";
+            splitter1.Size = new System.Drawing.Size(547, 3);
+            splitter1.TabIndex = 3;
+            splitter1.TabStop = false;
+            // 
+            // OptionsGridView
+            // 
+            OptionsGridView.AutoGenerateColumns = false;
+            OptionsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            OptionsGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            OptionsGridView.BackgroundColor = System.Drawing.Color.White;
+            OptionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            OptionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colOptionId, colAnswer, colQuestionId, colVariant, colIsCorrect, colOptionStatus, createUserDataGridViewTextBoxColumn, colOptionCreateDate, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
+            OptionsGridView.DataSource = tbOptionBindingSource;
+            OptionsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            OptionsGridView.Location = new System.Drawing.Point(0, 479);
+            OptionsGridView.Name = "OptionsGridView";
+            OptionsGridView.ReadOnly = true;
+            OptionsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            OptionsGridView.Size = new System.Drawing.Size(547, 279);
+            OptionsGridView.TabIndex = 4;
             // 
             // colOptionId
             // 
@@ -382,6 +378,10 @@
             updateDateDataGridViewTextBoxColumn.ReadOnly = true;
             updateDateDataGridViewTextBoxColumn.Visible = false;
             // 
+            // tbOptionBindingSource
+            // 
+            tbOptionBindingSource.DataSource = typeof(Models.tbOption);
+            // 
             // FrmQuestionsList
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -393,6 +393,8 @@
             Controls.Add(QuestionsGridView);
             Controls.Add(panel);
             Controls.Add(HeaderPanel);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmQuestionsList";
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
