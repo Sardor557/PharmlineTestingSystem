@@ -2,6 +2,7 @@
 using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.Shared.ViewModels;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PharmlineTestingSystem.AdminPanel
@@ -57,6 +58,11 @@ namespace PharmlineTestingSystem.AdminPanel
 
             var search = await AnswerService.SearchAnswerAsync(model);
             this.viAnswerBindingSource.DataSource = search.Data;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.FromArgb(235, 16, 16), ButtonBorderStyle.Solid);
         }
     }
 }

@@ -76,6 +76,7 @@
             // panel1
             // 
             panel1.BackColor = System.Drawing.Color.White;
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel1.Controls.Add(BackBtn);
             panel1.Controls.Add(HeaderPanel);
             panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -83,6 +84,7 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(1198, 146);
             panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint;
             // 
             // BackBtn
             // 
@@ -112,7 +114,7 @@
             HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderPanel.Location = new System.Drawing.Point(0, 0);
             HeaderPanel.Name = "HeaderPanel";
-            HeaderPanel.Size = new System.Drawing.Size(1198, 77);
+            HeaderPanel.Size = new System.Drawing.Size(1196, 77);
             HeaderPanel.TabIndex = 4;
             // 
             // AnswersLabel
@@ -140,6 +142,7 @@
             AnswersGridView.AutoGenerateColumns = false;
             AnswersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             AnswersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            AnswersGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             AnswersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AnswersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idDataGridViewTextBoxColumn, colQuestion, questionIdDataGridViewTextBoxColumn, employeeIdDataGridViewTextBoxColumn, colEmployeeName, colOptionContext, colVariant, optionIdDataGridViewTextBoxColumn, colIsCorrect, colDrug, drugIdDataGridViewTextBoxColumn, colAnswerDate });
             AnswersGridView.DataSource = viAnswerBindingSource;
