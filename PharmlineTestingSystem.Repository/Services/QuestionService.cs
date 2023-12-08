@@ -179,7 +179,7 @@ namespace PharmlineTestingSystem.Repository.Services
                     .FirstOrDefaultAsync();
 
                 if (question is null)
-                    return new Answer<viQuestion>(false, "Вопросы к данному препарату отсутвуют");
+                    return new Answer<viQuestion>(false, "Вопросы к данному препарату закончились");
 
                 return new Answer<viQuestion>(true, "OK", question);
             }

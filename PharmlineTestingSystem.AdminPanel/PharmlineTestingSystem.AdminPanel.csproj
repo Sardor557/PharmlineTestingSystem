@@ -7,6 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
     <ApplicationIcon>test.ico</ApplicationIcon>
+    <Company>Сардор</Company>
+    <Authors>Админ панель тестов</Authors>
+    <Product>Админ панель тестов</Product>
+    <Description>Админ панель тестов</Description>
+    <Copyright>Сардор</Copyright>
+    <AssemblyName>Админ панель тестов</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
