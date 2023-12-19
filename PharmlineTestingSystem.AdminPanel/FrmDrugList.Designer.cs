@@ -239,6 +239,8 @@
             Controls.Add(DrugsGridView);
             Controls.Add(panel);
             Controls.Add(HeaderPanel);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmDrugList";
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
