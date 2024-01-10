@@ -384,8 +384,7 @@
         private RJControlls.RJButton BackBtn;
         private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Label AnswersLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOption;
+        private System.Windows.Forms.PictureBox pictureBox1;        
         private System.Windows.Forms.BindingSource viAnswerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOptionContext;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVariant;

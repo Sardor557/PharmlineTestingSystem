@@ -20,10 +20,10 @@ namespace PharmlineTestingSystem.Models
 
         public long? TelegramId { get; set; }
 
-        [StringLength(255)]
+        [StringLength(255), Required]
         public string Password { get; set; }
 
-        [StringLength(2), Required]
+        [StringLength(2)]
         public string Language {  get; set; }
 
         public void Validate()
