@@ -59,7 +59,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<Answer<int>> AddQuestionAsync(tbQuestion question)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 int userId = accessor.GetId();
@@ -98,7 +98,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<AnswerBasic> EditQuestionAsync(tbQuestion model)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 model.Validate();

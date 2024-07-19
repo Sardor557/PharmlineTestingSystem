@@ -71,7 +71,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<AnswerBasic> AddDrugAsync(spDrug drug)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 drug.Validate();
@@ -95,7 +95,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<AnswerBasic> EditDrugAsync(spDrug drug)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 drug.Validate();
@@ -135,7 +135,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<Answer<int>> AddEmployeeAsync(tbEmployee employee)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 employee.Validate();
@@ -160,7 +160,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<AnswerBasic> EditEmployeeAsync(tbEmployee employee)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 employee.Validate();

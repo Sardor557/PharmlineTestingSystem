@@ -9,7 +9,6 @@ using PharmlineTestingSystem.Shared.Interfaces;
 using PharmlineTestingSystem.Shared.ViewModels;
 using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +57,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<Answer<viEmployee>> LoginEmployeeAsync(viEmployeeAuthorization authorization)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 var hash = CHash.EncryptMD5(authorization.Password);
@@ -105,7 +104,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<AnswerBasic> UpdateEmployeeLanguage(SetProperty<long, string> property)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 var emp = await db.tbEmployees.FindAsync(property.Id);

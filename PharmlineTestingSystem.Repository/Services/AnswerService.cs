@@ -79,7 +79,7 @@ namespace PharmlineTestingSystem.Repository.Services
 
         public async ValueTask<AnswerBasic> AddAnswerAsync(viAnswer model)
         {
-            var tran = await db.Database.BeginTransactionAsync();
+            using var tran = await db.Database.BeginTransactionAsync();
             try
             {
                 var answer = new tbAnswer();
