@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmlineTestingSystem.Utils", "PharmlineTestingSystem.Utils\PharmlineTestingSystem.Utils.csproj", "{28288D68-FFB1-4E94-A62D-7109A6BFC181}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{A18EE10E-F391-471B-8C49-66894B81B73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A18EE10E-F391-471B-8C49-66894B81B73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A18EE10E-F391-471B-8C49-66894B81B73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28288D68-FFB1-4E94-A62D-7109A6BFC181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28288D68-FFB1-4E94-A62D-7109A6BFC181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28288D68-FFB1-4E94-A62D-7109A6BFC181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28288D68-FFB1-4E94-A62D-7109A6BFC181}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,5 @@
-﻿using AsbtCore.UtilsV2;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using PharmlineCRMSystem.Shared.Services;
 using PharmlineTestingSystem.Database;
 using PharmlineTestingSystem.Models;
 using PharmlineTestingSystem.Shared.Interfaces;
@@ -9,6 +7,7 @@ using PharmlineTestingSystem.Shared.ViewModels;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using PharmlineTestingSystem.Utils;
 
 namespace PharmlineTestingSystem.Repository.Services
 {

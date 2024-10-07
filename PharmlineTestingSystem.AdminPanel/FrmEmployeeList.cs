@@ -28,13 +28,13 @@ namespace PharmlineTestingSystem.AdminPanel
 
         private void EmployeeGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            GridRowStyle.SetRowsStyle(this.EmployeeGridView.Rows, 5);
+            this.EmployeeGridView.Rows.SetRowsStyle(5);
         }
 
         private async void FrmEmployeeList_Load(object sender, EventArgs e)
         {
             await GetEmployeesAsync();
-            GridRowStyle.SetRowsStyle(this.EmployeeGridView.Rows, 5);
+            this.EmployeeGridView.Rows.SetRowsStyle(5);
         }
 
         private async void AddEmployeeBtn_Click(object sender, EventArgs e)

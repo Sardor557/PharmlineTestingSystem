@@ -30,12 +30,12 @@ namespace PharmlineTestingSystem.AdminPanel
         private async void FrmDrugList_Load(object sender, EventArgs e)
         {
             await GetDrugsAsync();
-            GridRowStyle.SetRowsStyle(this.DrugsGridView.Rows, 2);
+            this.DrugsGridView.Rows.SetRowsStyle(2);
         }
 
         private void DrugGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            GridRowStyle.SetRowsStyle(this.DrugsGridView.Rows, 2);
+            this.DrugsGridView.Rows.SetRowsStyle(2);
         }
 
         private async Task GetDrugsAsync()

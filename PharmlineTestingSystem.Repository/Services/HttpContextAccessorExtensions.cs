@@ -1,8 +1,8 @@
-﻿using AsbtCore.UtilsV2;
+﻿using PharmlineTestingSystem.Utils;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace PharmlineCRMSystem.Shared.Services
+namespace PharmlineTestingSystem.Repository.Services
 {
     public interface IHttpContextAccessorExtensions
     {

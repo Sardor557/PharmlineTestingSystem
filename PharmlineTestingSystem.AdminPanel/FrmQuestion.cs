@@ -1,4 +1,4 @@
-﻿using AsbtCore.UtilsV2;
+﻿using PharmlineTestingSystem.Utils;
 using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
@@ -43,7 +43,7 @@ namespace PharmlineTestingSystem.AdminPanel
             this.StatusComboBox.DataSource = statuses.Data;
             this.IsOpencheckBox.Text = "Открытый";
             this.OptionsGridView.DataSource = Question.Options;
-            GridRowStyle.SetRowsStyle(this.OptionsGridView.Rows, 5);
+            this.OptionsGridView.Rows.SetRowsStyle(5);
         }
 
         private void BackBtn_Click(object sender, EventArgs e) => this.Close();

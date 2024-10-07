@@ -1,4 +1,4 @@
-﻿using AsbtCore.UtilsV2;
+﻿using PharmlineTestingSystem.Utils;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,7 +6,7 @@ namespace PharmlineTestingSystem.AdminPanel.Utils
 {
     public static class GridRowStyle
     {
-        public static void SetRowsStyle(DataGridViewRowCollection rows, int index)
+        public static void SetRowsStyle(this DataGridViewRowCollection rows, int index)
         {
             foreach (DataGridViewRow row in rows)
             {                

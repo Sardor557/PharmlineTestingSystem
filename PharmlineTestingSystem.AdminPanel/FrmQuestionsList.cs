@@ -1,4 +1,4 @@
-﻿using AsbtCore.UtilsV2;
+﻿using PharmlineTestingSystem.Utils;
 using PharmlineTestingSystem.AdminPanel.Services;
 using PharmlineTestingSystem.AdminPanel.Utils;
 using PharmlineTestingSystem.Models;
@@ -31,12 +31,12 @@ namespace PharmlineTestingSystem.AdminPanel
 
         private void QuestionsGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            GridRowStyle.SetRowsStyle(this.QuestionsGridView.Rows, 4);
+            this.QuestionsGridView.Rows.SetRowsStyle(4);
         }
 
         private async void FrmQuestionsList_Load(object sender, EventArgs e)
         {
-            GridRowStyle.SetRowsStyle(this.QuestionsGridView.Rows, 4);
+            this.QuestionsGridView.Rows.SetRowsStyle(4);
             var drugs = await DicoService.GetDrugsAsync();
             this.colDrugId.DataSource = drugs.Data;
             await GetQuestionsAsync();

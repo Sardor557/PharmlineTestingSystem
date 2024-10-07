@@ -29,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PharmlineTestingSystem.Models\PharmlineTestingSystem.Models.csproj" />
     <ProjectReference Include="..\PharmlineTestingSystem.Shared\PharmlineTestingSystem.Shared.csproj" />
+    <ProjectReference Include="..\PharmlineTestingSystem.Utils\PharmlineTestingSystem.Utils.csproj" />
   </ItemGroup>
 
   <ItemGroup>

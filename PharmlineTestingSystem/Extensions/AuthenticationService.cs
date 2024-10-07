@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using PharmlineCRMSystem.Shared.Services;
+using PharmlineTestingSystem.Repository.Services;
 using System.Text;
 
 namespace PharmlineTestingSystem.Extensions
