@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+    postgres:
+        image: postgres:17
+        environment:
+            POSTGRES_DB: pharmline_testing_db
+            POSTGRES_USER: "postgres"
+            POSTGRES_PASSWORD: "postgres"
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            interval: 10s
+            timeout: 3s
+            retries: 5
+
+    pharmlinetestingsystem:
+        image: pharmlinetestingsystem
+        build:
+            context: .
+            dockerfile: PharmlineTestingSystem/Dockerfile
+        ports:
+            - "27850:27850"
+        depends_on:
+            postgres:
+                condition: service_healthy
+        entrypoint: ["sh", "-c", "until pg_isready -h postgres -p 5432; do echo waiting for postgres...; sleep 2; done; dotnet PharmlineTestingSystem.dll"]
+        environment:
+            - ASPNETCORE_URLS=http://0.0.0.0:27850
+
+    nginx:
+        image: nginx:perl
+        ports:
+          - "27851:27851"
+        volumes:
+          - C:/works/PharmlineTestingSystem/PharmlineTestingSystem/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        depends_on:
+          - pharmlinetestingsystem
+
+volumes:
+  postgres-data:
