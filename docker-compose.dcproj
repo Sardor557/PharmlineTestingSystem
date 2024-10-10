@@ -7,6 +7,10 @@
     <ProjectGuid>6494c0b2-edd5-433f-b233-77a5d54f7ef8</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="docker-compose - Copy.override.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose - Copy.yml" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>

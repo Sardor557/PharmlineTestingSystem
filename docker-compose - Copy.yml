@@ -8,9 +8,9 @@ services:
             POSTGRES_USER: "postgres"
             POSTGRES_PASSWORD: "postgres"
         volumes:
-            - "/home/ubuntu/postgresql/16/main:/var/lib/postgresql/data"
+            - "/var/lib/postgresql/16/main:/var/lib/postgresql/data"
         ports:
-            - "5433:5432"
+            - "5432:5432"
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U postgres"]
             interval: 10s
@@ -19,6 +19,9 @@ services:
 
     pharmlinetestingsystem:
         image: sardor557/pharmlinetestingsystem:latest
+        build:
+            context: .
+            dockerfile: PharmlineTestingSystem/Dockerfile
         ports:
             - "27850:27850"
         depends_on:
