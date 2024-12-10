@@ -48,8 +48,6 @@ namespace PharmlineTestingSystem
             services.AddMyServices();
             services.AddMyDatabaseService(conf);
 
-            //services.AddHostedService<WorkerService>();
-
             services.AddControllers().AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
@@ -64,14 +62,9 @@ namespace PharmlineTestingSystem
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-
-            }
-            else
-            {
+            if (!env.IsDevelopment())            
                 app.UseExceptionHandler("/Error");
-            }
+
             app.UseCompression();
             app.UseDeveloperExceptionPage();
 
