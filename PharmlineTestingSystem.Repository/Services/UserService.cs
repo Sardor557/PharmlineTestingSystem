@@ -13,6 +13,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using PharmlineTestingSystem.Utils;
+using PharmlineCRMSystem.Shared.Services;
 
 namespace PharmlineTestingSystem.Repository.Services
 {
