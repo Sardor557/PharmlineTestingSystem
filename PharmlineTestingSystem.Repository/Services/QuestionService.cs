@@ -127,6 +127,7 @@ namespace PharmlineTestingSystem.Repository.Services
                         existOption.Answer = option.Answer;
                         existOption.QuestionId = model.Id;
                         existOption.Variant = option.Variant;
+                        existOption.IsCorrect = option.IsCorrect;
 
                         await db.tbOptions.AddAsync(existOption);
                         continue;
@@ -138,6 +139,7 @@ namespace PharmlineTestingSystem.Repository.Services
                     existOption.Answer = option.Answer;
                     existOption.QuestionId = option.QuestionId;
                     existOption.Variant = option.Variant;
+                    existOption.IsCorrect = option.IsCorrect;
                 }
 
                 await db.SaveChangesAsync();
