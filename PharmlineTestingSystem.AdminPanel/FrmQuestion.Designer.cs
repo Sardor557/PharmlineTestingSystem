@@ -39,22 +39,22 @@
             ContextLabel = new System.Windows.Forms.Label();
             IsOpencheckBox = new System.Windows.Forms.CheckBox();
             OptionsGridView = new System.Windows.Forms.DataGridView();
-            spStatusBindingSource = new System.Windows.Forms.BindingSource(components);
-            tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
-            SaveOptionsBtn = new System.Windows.Forms.Button();
-            StatusLabel = new System.Windows.Forms.Label();
-            StatusComboBox = new System.Windows.Forms.ComboBox();
-            BackBtn = new System.Windows.Forms.Button();
             colOptionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colQuestionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colVariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colIsCorrect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             colStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            spStatusBindingSource = new System.Windows.Forms.BindingSource(components);
             createUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             updateDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            tbOptionBindingSource = new System.Windows.Forms.BindingSource(components);
+            SaveOptionsBtn = new System.Windows.Forms.Button();
+            StatusLabel = new System.Windows.Forms.Label();
+            StatusComboBox = new System.Windows.Forms.ComboBox();
+            BackBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)spDrugBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbQuestionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OptionsGridView).BeginInit();
@@ -137,66 +137,11 @@
             OptionsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colOptionId, colAnswer, colQuestionId, colVariant, colIsCorrect, colStatus, createUserDataGridViewTextBoxColumn, createDateDataGridViewTextBoxColumn, updateUserDataGridViewTextBoxColumn, updateDateDataGridViewTextBoxColumn });
             OptionsGridView.DataSource = tbOptionBindingSource;
             OptionsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            OptionsGridView.Location = new System.Drawing.Point(0, 302);
+            OptionsGridView.Location = new System.Drawing.Point(0, 282);
             OptionsGridView.MultiSelect = false;
             OptionsGridView.Name = "OptionsGridView";
-            OptionsGridView.Size = new System.Drawing.Size(659, 365);
+            OptionsGridView.Size = new System.Drawing.Size(659, 385);
             OptionsGridView.TabIndex = 5;
-            // 
-            // spStatusBindingSource
-            // 
-            spStatusBindingSource.DataSource = typeof(Models.spStatus);
-            // 
-            // tbOptionBindingSource
-            // 
-            tbOptionBindingSource.DataSource = typeof(Models.tbOption);
-            // 
-            // SaveOptionsBtn
-            // 
-            SaveOptionsBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            SaveOptionsBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            SaveOptionsBtn.Location = new System.Drawing.Point(12, 267);
-            SaveOptionsBtn.Name = "SaveOptionsBtn";
-            SaveOptionsBtn.Size = new System.Drawing.Size(96, 29);
-            SaveOptionsBtn.TabIndex = 7;
-            SaveOptionsBtn.Text = "Сохранить";
-            SaveOptionsBtn.UseVisualStyleBackColor = true;
-            SaveOptionsBtn.Click += SaveOptionsBtn_Click;
-            // 
-            // StatusLabel
-            // 
-            StatusLabel.AutoSize = true;
-            StatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            StatusLabel.Location = new System.Drawing.Point(421, 39);
-            StatusLabel.Name = "StatusLabel";
-            StatusLabel.Size = new System.Drawing.Size(57, 21);
-            StatusLabel.TabIndex = 8;
-            StatusLabel.Text = "Статус";
-            // 
-            // StatusComboBox
-            // 
-            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", spStatusBindingSource, "Id", true));
-            StatusComboBox.DataSource = spStatusBindingSource;
-            StatusComboBox.DisplayMember = "Name";
-            StatusComboBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            StatusComboBox.FormattingEnabled = true;
-            StatusComboBox.Location = new System.Drawing.Point(484, 41);
-            StatusComboBox.Name = "StatusComboBox";
-            StatusComboBox.Size = new System.Drawing.Size(147, 29);
-            StatusComboBox.TabIndex = 9;
-            StatusComboBox.ValueMember = "Id";
-            // 
-            // BackBtn
-            // 
-            BackBtn.BackColor = System.Drawing.SystemColors.Control;
-            BackBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            BackBtn.ForeColor = System.Drawing.Color.Firebrick;
-            BackBtn.Location = new System.Drawing.Point(126, 267);
-            BackBtn.Name = "BackBtn";
-            BackBtn.Size = new System.Drawing.Size(96, 29);
-            BackBtn.TabIndex = 10;
-            BackBtn.Text = "Отмена";
-            BackBtn.UseVisualStyleBackColor = false;
             // 
             // colOptionId
             // 
@@ -246,6 +191,10 @@
             colStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             colStatus.ValueMember = "Id";
             // 
+            // spStatusBindingSource
+            // 
+            spStatusBindingSource.DataSource = typeof(Models.spStatus);
+            // 
             // createUserDataGridViewTextBoxColumn
             // 
             createUserDataGridViewTextBoxColumn.DataPropertyName = "CreateUser";
@@ -275,6 +224,57 @@
             updateDateDataGridViewTextBoxColumn.HeaderText = "UpdateDate";
             updateDateDataGridViewTextBoxColumn.Name = "updateDateDataGridViewTextBoxColumn";
             updateDateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tbOptionBindingSource
+            // 
+            tbOptionBindingSource.DataSource = typeof(Models.tbOption);
+            // 
+            // SaveOptionsBtn
+            // 
+            SaveOptionsBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            SaveOptionsBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            SaveOptionsBtn.Location = new System.Drawing.Point(25, 247);
+            SaveOptionsBtn.Name = "SaveOptionsBtn";
+            SaveOptionsBtn.Size = new System.Drawing.Size(96, 29);
+            SaveOptionsBtn.TabIndex = 7;
+            SaveOptionsBtn.Text = "Сохранить";
+            SaveOptionsBtn.UseVisualStyleBackColor = true;
+            SaveOptionsBtn.Click += SaveOptionsBtn_Click;
+            // 
+            // StatusLabel
+            // 
+            StatusLabel.AutoSize = true;
+            StatusLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            StatusLabel.Location = new System.Drawing.Point(421, 39);
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Size = new System.Drawing.Size(57, 21);
+            StatusLabel.TabIndex = 8;
+            StatusLabel.Text = "Статус";
+            // 
+            // StatusComboBox
+            // 
+            StatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", spStatusBindingSource, "Id", true));
+            StatusComboBox.DataSource = spStatusBindingSource;
+            StatusComboBox.DisplayMember = "Name";
+            StatusComboBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            StatusComboBox.FormattingEnabled = true;
+            StatusComboBox.Location = new System.Drawing.Point(484, 41);
+            StatusComboBox.Name = "StatusComboBox";
+            StatusComboBox.Size = new System.Drawing.Size(147, 29);
+            StatusComboBox.TabIndex = 9;
+            StatusComboBox.ValueMember = "Id";
+            // 
+            // BackBtn
+            // 
+            BackBtn.BackColor = System.Drawing.SystemColors.Control;
+            BackBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            BackBtn.ForeColor = System.Drawing.Color.Firebrick;
+            BackBtn.Location = new System.Drawing.Point(127, 247);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new System.Drawing.Size(96, 29);
+            BackBtn.TabIndex = 10;
+            BackBtn.Text = "Отмена";
+            BackBtn.UseVisualStyleBackColor = false;
             // 
             // FrmQuestion
             // 
