@@ -74,23 +74,29 @@ namespace PharmlineTestingSystem.Repository.Services
                 await db.tbQuestions.AddAsync(question);
                 await db.SaveChangesAsync();
 
-                options = options.Select(x =>
-                {
-                    x.QuestionId = question.Id; x.CreateDate = DateTime.Now;
-                    x.CreateUser = userId; return x;
-                }).ToList();
+                //options = options.Select(x =>
+                //{
+                //    x.QuestionId = question.Id; x.CreateDate = DateTime.Now;
+                //    x.CreateUser = userId; return x;
+                //}).ToList();
 
-                await db.tbOptions.AddRangeAsync(options);
-                await db.SaveChangesAsync();
+                //await db.tbOptions.AddRangeAsync(options);
+                //await db.SaveChangesAsync();
 
                 await tran.CommitAsync();
 
                 return new Answer<int>(true, "OK", question.Id);
             }
+            catch (ArgumentException ae)
+            {
+                await tran.RollbackAsync();
+                logger.LogError("QuestionService.AddQuestionAsync error:{0}", ae.GetAllMessages());
+                return new Answer<int>(false, ae.Message);
+            }
             catch (Exception ex)
             {
                 await tran.RollbackAsync();
-                logger.LogError("QuestionService.AddQuestionAsync error:{0}", ex.GetAllMessages());
+                logger.LogError("QuestionService.AddQuestionAsync error: {0} stack: {1}", ex.GetAllMessages(), ex.GetStackTrace(3));
                 return new Answer<int>(false, "Ошибка");
             }
         }
@@ -146,10 +152,16 @@ namespace PharmlineTestingSystem.Repository.Services
 
                 return new AnswerBasic(true, "OK");
             }
+            catch (ArgumentException ae)
+            {
+                await tran.RollbackAsync();
+                logger.LogError("QuestionService.AddQuestionAsync error:{0}", ae.GetAllMessages());
+                return new AnswerBasic(false, ae.Message);
+            }
             catch (Exception ex)
             {
                 await tran.RollbackAsync();
-                logger.LogError("QuestionService.EditQuestionAsync error:{0}", ex.GetAllMessages());
+                logger.LogError("QuestionService.EditQuestionAsync error: {0} stack: {1}", ex.GetAllMessages(), ex.GetStackTrace(3));
                 return new AnswerBasic(false, "Ошибка");
             }
         }

@@ -275,6 +275,7 @@
             BackBtn.TabIndex = 10;
             BackBtn.Text = "Отмена";
             BackBtn.UseVisualStyleBackColor = false;
+            BackBtn.Click += BackBtn_Click_1;
             // 
             // FrmQuestion
             // 

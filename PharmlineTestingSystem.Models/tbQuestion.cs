@@ -23,10 +23,10 @@ namespace PharmlineTestingSystem.Models
 
         public void Validate()
         {
-            if (this is null) throw new Exception("Форма пустая");
-            if (this.Context is null) throw new Exception("Контекст пустой");
-            if (this.DrugId == 0) throw new Exception("Препарат не выбран");
-            if (this.Options is null || this.Options.Count < 1) throw new Exception("Варианты ответов не введены");
+            if (this is null) throw new ArgumentException("Форма пустая");
+            if (this.Context is null) throw new ArgumentException("Контекст пустой");
+            if (this.DrugId == 0) throw new ArgumentException("Препарат не выбран");
+            if (this.Options is null || this.Options.Count < 1) throw new ArgumentException("Варианты ответов не введены");
         }
     }
 }
