@@ -20,7 +20,6 @@ namespace PharmlineTestingSystem.Models
         public bool IsOpen { get; set; }
         public virtual List<tbOption> Options { get; set; }
 
-
         public void Validate()
         {
             if (this is null) throw new ArgumentException("Форма пустая");

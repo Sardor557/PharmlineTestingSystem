@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace PharmlineTestingSystem.AdminPanel
 {
@@ -70,7 +71,6 @@ namespace PharmlineTestingSystem.AdminPanel
             var options = await QuestionService.GetQuestionOptionsAsync(questionId);
             this.OptionsGridView.DataSource = options.Data;
             this.OptionsGridView.Refresh();
-
         }
 
         private async void AddQuestionBtn_Click(object sender, EventArgs e)
@@ -91,9 +91,11 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             var questionCells = this.QuestionsGridView.SelectedRows[0].Cells;
             var question = new tbQuestion();
+
             question.Id = questionCells["colId"].Value.ToInt();
             question.Context = questionCells["colContext"].Value.ToString();
             question.DrugId = questionCells["colDrugId"].Value.ToInt();
+            question.Options = new List<tbOption>();
 
             var isOpen = questionCells["colIsOpen"].Value;
             question.IsOpen = isOpen != null && Convert.ToBoolean(isOpen);
@@ -102,7 +104,6 @@ namespace PharmlineTestingSystem.AdminPanel
 
             var optionRows = this.OptionsGridView.Rows;
 
-            question.Options = new List<tbOption>();
             foreach (DataGridViewRow row in optionRows)
             {
                 var cells = row.Cells;
@@ -111,6 +112,7 @@ namespace PharmlineTestingSystem.AdminPanel
                 option.Id = cells["colOptionId"].Value.ToInt();
                 option.Answer = cells["colAnswer"].Value.ToString();
                 option.QuestionId = question.Id;
+                option.CreateDate = cells["colOptionCreateDate"].Value.ToDateTime();
 
                 var isCorrect = cells["colIsCorrect"].Value;
                 option.IsCorrect = isCorrect != null && Convert.ToBoolean(isCorrect);

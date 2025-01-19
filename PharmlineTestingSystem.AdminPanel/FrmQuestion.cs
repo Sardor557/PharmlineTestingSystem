@@ -20,6 +20,12 @@ namespace PharmlineTestingSystem.AdminPanel
             Question = question;
             this.tbQuestionBindingSource.DataSource = question;
             this.OptionsGridView.CellEnter += OptionsGridView_CellEnter;
+            this.OptionsGridView.DataError += OptionsGridView_DataError;
+        }
+
+        private void OptionsGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
         }
 
         private void OptionsGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -38,15 +44,21 @@ namespace PharmlineTestingSystem.AdminPanel
         {
             var drugs = await DicoService.GetDrugsAsync(1);
             var statuses = await DicoService.GetStatusesAsync();
-            this.colStatus.DataSource = statuses.Data;
+
             this.DrugComboBox.DataSource = drugs.Data;
-            this.StatusComboBox.DataSource = statuses.Data;
+            this.DrugComboBox.SelectedValue = Question.DrugId;
+
             this.IsOpencheckBox.Text = "Открытый";
-            this.OptionsGridView.DataSource = Question.Options;
+            this.tbOptionBindingSource.DataSource = Question.Options;
+
+            this.spStatusBindingSource.DataSource = statuses.Data;
+            this.spStatusGridBindingSource.DataSource = statuses.Data;
+
+            this.StatusComboBox.SelectedValue = Question.Status;
+            this.StatusComboBox.Text = statuses.Data.Where(x => x.Id == Question.Status).Select(x => x.Name).FirstOrDefault();
+
             this.OptionsGridView.Rows.SetRowsStyle(5);
         }
-
-        private void BackBtn_Click(object sender, EventArgs e) => this.Close();
 
         private void SaveOptionsBtn_Click(object sender, EventArgs e)
         {
@@ -60,26 +72,9 @@ namespace PharmlineTestingSystem.AdminPanel
             {
                 if (row.IsNewRow) continue;
 
-                var answer = row.Cells["colAnswer"].Value;
-                var status = row.Cells["colStatus"].Value;
-                var variant = row.Cells["colVariant"].Value;
+                tbOption option = GetOption(row);
+                if (option == null) continue;
 
-                var arr = new object[3] { answer, status, variant };
-
-                if (arr.Any(x => x is null)) continue;
-
-                var option = new tbOption();
-
-                var optionId = row.Cells["colOptionId"].Value;
-                option.Id = optionId != null ? optionId.ToInt() : 0;
-
-                option.Answer = answer.ToString();
-                option.Status = status.ToInt();
-                option.Variant = variant.ToString();
-                option.QuestionId = row.Cells["colQuestionId"].Value.ToInt();
-
-                var isCorrect = row.Cells["colIsCorrect"].Value;
-                option.IsCorrect = isCorrect != null && Convert.ToBoolean(isCorrect);
                 Question.Options.Add(option);
             }
 
@@ -87,9 +82,33 @@ namespace PharmlineTestingSystem.AdminPanel
             DialogResult = DialogResult.OK;
         }
 
-        private void BackBtn_Click_1(object sender, EventArgs e)
+        private tbOption GetOption(DataGridViewRow row)
         {
-            DialogResult = DialogResult.Cancel;
+            var answer = row.Cells["colAnswer"].Value;
+            var status = row.Cells["colStatus"].Value;
+            var variant = row.Cells["colVariant"].Value;
+
+            var arr = new object[3] { answer, status, variant };
+
+            if (arr.Any(x => x is null)) return null;
+
+            var option = new tbOption();
+
+            var optionId = row.Cells["colOptionId"].Value;
+            option.Id = optionId != null ? optionId.ToInt() : 0;
+
+            option.Answer = answer.ToString();
+            option.Status = status.ToInt();
+            option.Variant = variant.ToString();
+            option.QuestionId = Question.Id;
+
+            var isCorrect = row.Cells["colIsCorrect"].Value;
+            option.IsCorrect = isCorrect != null && Convert.ToBoolean(isCorrect);
+            return option;
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
             this.Dispose();
             this.Close();
         }

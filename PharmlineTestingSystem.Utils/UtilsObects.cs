@@ -117,7 +117,7 @@ namespace PharmlineTestingSystem.Utils
         public static int ToInt(this object inVal)
         {
             var s = inVal.ToStr().Trim();
-            if (DBNull.Value == inVal || inVal == null || s.Length == 0)
+            if (inVal == null || DBNull.Value == inVal || s.Length == 0)
             {
                 throw new Exception($"неверно значения => {inVal}");
             }
