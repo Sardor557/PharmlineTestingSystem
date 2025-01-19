@@ -52,10 +52,13 @@ namespace PharmlineTestingSystem.AdminPanel
             this.tbOptionBindingSource.DataSource = Question.Options;
 
             this.spStatusBindingSource.DataSource = statuses.Data;
-            this.spStatusGridBindingSource.DataSource = statuses.Data;
+            this.spStatusGridBindingSource.DataSource = statuses.Data;            
 
-            this.StatusComboBox.SelectedValue = Question.Status;
-            this.StatusComboBox.Text = statuses.Data.Where(x => x.Id == Question.Status).Select(x => x.Name).FirstOrDefault();
+            if (Question.Status != 0)
+            {
+                this.StatusComboBox.SelectedValue = Question.Status;
+                this.StatusComboBox.Text = statuses.Data.Where(x => x.Id == Question.Status).Select(x => x.Name).FirstOrDefault();
+            }
 
             this.OptionsGridView.Rows.SetRowsStyle(5);
         }
