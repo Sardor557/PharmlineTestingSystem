@@ -47,12 +47,12 @@ namespace PharmlineTestingSystem.AdminPanel
 
             this.DrugComboBox.DataSource = drugs.Data;
             this.DrugComboBox.SelectedValue = Question.DrugId;
+            this.IsOpencheckBox.Text = null;
 
-            this.IsOpencheckBox.Text = "Открытый";
             this.tbOptionBindingSource.DataSource = Question.Options;
 
             this.spStatusBindingSource.DataSource = statuses.Data;
-            this.spStatusGridBindingSource.DataSource = statuses.Data;            
+            this.spStatusGridBindingSource.DataSource = statuses.Data;
 
             if (Question.Status != 0)
             {
