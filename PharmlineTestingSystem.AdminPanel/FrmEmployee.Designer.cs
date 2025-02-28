@@ -95,7 +95,7 @@
             // SaveBtn
             // 
             SaveBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            SaveBtn.Location = new System.Drawing.Point(344, 124);
+            SaveBtn.Location = new System.Drawing.Point(332, 124);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new System.Drawing.Size(87, 23);
             SaveBtn.TabIndex = 6;
@@ -107,7 +107,7 @@
             // 
             CancelBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             CancelBtn.ForeColor = System.Drawing.Color.Red;
-            CancelBtn.Location = new System.Drawing.Point(437, 124);
+            CancelBtn.Location = new System.Drawing.Point(425, 124);
             CancelBtn.Name = "CancelBtn";
             CancelBtn.Size = new System.Drawing.Size(87, 23);
             CancelBtn.TabIndex = 7;

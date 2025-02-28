@@ -67,30 +67,29 @@ namespace PharmlineTestingSystem.Repository.Services
                 question.CreateDate = DateTime.Now;
                 question.CreateUser = userId;
 
-                var options = question.Options;
-                question.Options = null;
-
-
-                await db.tbQuestions.AddAsync(question);
-                await db.SaveChangesAsync();
-
-                options = options.Select(x =>
+                question.Options = question.Options.Select(x =>
                 {
                     x.QuestionId = question.Id; x.CreateDate = DateTime.Now;
                     x.CreateUser = userId; return x;
                 }).ToList();
 
-                await db.tbOptions.AddRangeAsync(options);
+                await db.tbQuestions.AddAsync(question);
                 await db.SaveChangesAsync();
 
                 await tran.CommitAsync();
 
                 return new Answer<int>(true, "OK", question.Id);
             }
+            catch (ArgumentException ae)
+            {
+                await tran.RollbackAsync();
+                logger.LogError("QuestionService.AddQuestionAsync error:{0}", ae.GetAllMessages());
+                return new Answer<int>(false, ae.Message);
+            }
             catch (Exception ex)
             {
                 await tran.RollbackAsync();
-                logger.LogError("QuestionService.AddQuestionAsync error:{0}", ex.GetAllMessages());
+                logger.LogError("QuestionService.AddQuestionAsync error: {0} stack: {1}", ex.GetAllMessages(), ex.GetStackTrace(5));
                 return new Answer<int>(false, "Ошибка");
             }
         }
@@ -128,6 +127,7 @@ namespace PharmlineTestingSystem.Repository.Services
                         existOption.Answer = option.Answer;
                         existOption.QuestionId = model.Id;
                         existOption.Variant = option.Variant;
+                        existOption.IsCorrect = option.IsCorrect;
 
                         await db.tbOptions.AddAsync(existOption);
                         continue;
@@ -139,6 +139,7 @@ namespace PharmlineTestingSystem.Repository.Services
                     existOption.Answer = option.Answer;
                     existOption.QuestionId = option.QuestionId;
                     existOption.Variant = option.Variant;
+                    existOption.IsCorrect = option.IsCorrect;
                 }
 
                 await db.SaveChangesAsync();
@@ -146,10 +147,16 @@ namespace PharmlineTestingSystem.Repository.Services
 
                 return new AnswerBasic(true, "OK");
             }
+            catch (ArgumentException ae)
+            {
+                await tran.RollbackAsync();
+                logger.LogError("QuestionService.AddQuestionAsync error: {0}", ae.GetAllMessages());
+                return new AnswerBasic(false, ae.Message);
+            }
             catch (Exception ex)
             {
                 await tran.RollbackAsync();
-                logger.LogError("QuestionService.EditQuestionAsync error:{0}", ex.GetAllMessages());
+                logger.LogError("QuestionService.EditQuestionAsync error: {0} stack: {1}", ex.GetAllMessages(), ex.GetStackTrace(5));
                 return new AnswerBasic(false, "Ошибка");
             }
         }

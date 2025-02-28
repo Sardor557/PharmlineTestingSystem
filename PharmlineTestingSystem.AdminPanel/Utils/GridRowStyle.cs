@@ -10,7 +10,7 @@ namespace PharmlineTestingSystem.AdminPanel.Utils
         {
             foreach (DataGridViewRow row in rows)
             {                
-                if (row.Cells[index].Value.ToInt() != 1)
+                if (row.Cells[index].Value is not null && row.Cells[index].Value.ToInt() != 1)
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 222, 222);
             }
         }

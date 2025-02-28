@@ -52,5 +52,6 @@ namespace PharmlineTestingSystem.AdminPanel
             MessageBox.Show(e.Exception.GetAllMessages(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             CLogJson.Write(li);
         }
+
     }
 }
