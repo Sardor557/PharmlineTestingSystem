@@ -1,30 +1,10 @@
 version: '3.9'
 
 services:
-    postgres:
-        image: postgres:16
-        environment:
-            POSTGRES_DB: pharmline_testing_db
-            POSTGRES_USER: "postgres"
-            POSTGRES_PASSWORD: "postgres"
-        volumes:
-            - "/home/ubuntu/postgresql/16/main:/var/lib/postgresql/data"
-        ports:
-            - "5433:5432"
-        healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U postgres"]
-            interval: 10s
-            timeout: 3s
-            retries: 5
-
     pharmlinetestingsystem:
         image: sardor557/pharmlinetestingsystem:latest
         ports:
-            - "27850:27850"
-        depends_on:
-            postgres:
-                condition: service_healthy
-        entrypoint: ["sh", "-c", "until pg_isready -h postgres -p 5432; do echo waiting for postgres...; sleep 2; done; dotnet PharmlineTestingSystem.dll"]
+            - "27850:27850"           
         environment:
             - ASPNETCORE_URLS=http://0.0.0.0:27850
 
@@ -33,6 +13,10 @@ services:
         ports:
           - "27851:27851"
         volumes:
-          - /home/ubuntu/ngnx/nginx.conf:/etc/nginx/nginx.conf:ro
+          - my_nginx:/etc/nginx/nginx.conf:ro
         depends_on:
           - pharmlinetestingsystem
+
+volumes:
+    my_nginx:
+        name: my_nginx
