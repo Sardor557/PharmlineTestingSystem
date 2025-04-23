@@ -40,7 +40,7 @@ namespace PharmlineTestingSystem
                       {
                           configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
                           configuration.AddUserSecrets<Program>();
-                      })
+                      })                     
                       .UseSerilog();
         }
 
