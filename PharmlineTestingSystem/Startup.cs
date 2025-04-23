@@ -73,15 +73,6 @@ namespace PharmlineTestingSystem
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            var FileStorePath = AppDomain.CurrentDomain.BaseDirectory + conf["SystemParams:FilePath"];
-            if (!Directory.Exists(FileStorePath)) Directory.CreateDirectory(FileStorePath);
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                OnPrepareResponse = ctx => { ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age=604800"); },
-                FileProvider = new PhysicalFileProvider(FileStorePath),
-                RequestPath = "/store"
-            });
-
             app.UseRouting();
 
             app.UseCors("AllowAllHeaders");
