@@ -70,10 +70,7 @@ namespace PharmlineTestingSystem
 
             app.UseRequestLocalization();
 
-            var options = new DefaultFilesOptions();
-            options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("index.html");
-            app.UseDefaultFiles(options);
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             var FileStorePath = AppDomain.CurrentDomain.BaseDirectory + conf["SystemParams:FilePath"];
