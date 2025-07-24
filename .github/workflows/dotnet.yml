@@ -1,0 +1,46 @@
+name: .NET CI/CD
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, ARM64]
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore ./PharmlineTestingSystem/PharmlineTestingSystem.API.csproj
+
+    - name: Build
+      run: dotnet build ./PharmlineTestingSystem/PharmlineTestingSystem.csproj --configuration Release
+
+    - name: Publish
+      run: dotnet publish ./PharmlineTestingSystem/PharmlineTestingSystem.csproj --configuration Release --output /PharmlineTestingSystem
+
+    - name: Deploy to server
+      run: |
+        echo "Stopping service..."
+        sudo systemctl stop pharmline_testing.service
+
+        echo "Creating target directory..."
+        sudo mkdir -p /var/www/PharmlineTestingSystem/publish
+
+        echo "Removing old files..."
+        sudo rm -rf /var/www/PharmlineTestingSystem
+
+        echo "Copying new files..."
+        sudo cp -r /home/ubuntu/actions-runner/_work/PharmlineTestingSystem/PharmlineTestingSystem /var/www/PharmlineTestingSystem/
+
+        echo "Starting service..."
+        sudo systemctl start pharmline_testing.service
